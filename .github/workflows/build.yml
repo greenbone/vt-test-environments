@@ -1,0 +1,90 @@
+name: Build and publish Docker images
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - DOCKERFILE: amazon_linux
+            BASEIMAGE: amazonlinux
+            TAG: 1
+          - DOCKERFILE: amazon_linux
+            BASEIMAGE: amazonlinux
+            TAG: 2
+          - DOCKERFILE: amazon_linux
+            BASEIMAGE: amazonlinux
+            TAG: 2022
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: woody
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: sarge
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: etch
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: lenny
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: squeeze
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: wheezy
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian/eol
+            TAG: jessie
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian
+            TAG: stretch
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian
+            TAG: buster
+          - DOCKERFILE: debian_linux
+            BASEIMAGE: debian
+            TAG: bullseye
+          - DOCKERFILE: mageia_linux
+            BASEIMAGE: mageia
+            TAG: 7
+          - DOCKERFILE: mageia_linux
+            BASEIMAGE: mageia
+            TAG: 8
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            TAG: 5
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            TAG: 6
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            TAG: 7
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            TAG: 8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Login to Docker Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and publish Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          file: ${{ matrix.DOCKERFILE }}.dockerfile
+          tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
+          build-args: |
+            BASEIMAGE=${{ matrix.BASEIMAGE }}
+            TAG=${{ matrix.TAG }}
