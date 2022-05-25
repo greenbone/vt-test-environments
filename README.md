@@ -27,6 +27,10 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `6`
     - `7`
     - `8`
+- SLES (`sles`)
+    <!-- - `15.1` -->
+    - `15.3`
+    - `15.4`
 
 ## Build images
 To build e.g. the image for Mageia 8 use:

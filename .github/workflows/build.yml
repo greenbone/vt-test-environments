@@ -69,6 +69,9 @@ jobs:
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
             TAG: 8
+          - DOCKERFILE: sles
+            BASEIMAGE: registry.suse.com/suse/sle15
+            TAG: 15.3
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
