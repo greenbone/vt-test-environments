@@ -27,6 +27,8 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `6`
     - `7`
     - `8`
+- Rocky Linux (`rocky_linux`)
+    - `8.5`
 
 ## Build images
 To build e.g. the image for Mageia 8 use:
