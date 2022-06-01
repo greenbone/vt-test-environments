@@ -4,6 +4,10 @@ Environments for VT testing
 Each Docker image comes with a pre-installed SSH server and a demo user (password: demo). This enables a VT developer to deploy a clean test environment within seconds.
 
 # Available images & tags
+- Alma Linux (`alma_linux`)
+    - `8.5`
+    - `8.6`
+    - `9.0`
 - Amazon Linux (`amazon_linux`)
     - `1`
     - `2`

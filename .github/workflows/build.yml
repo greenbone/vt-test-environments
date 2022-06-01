@@ -12,6 +12,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - DOCKERFILE: alma_linux
+            BASEIMAGE: almalinux
+            TAG: 8.5
+          - DOCKERFILE: alma_linux
+            BASEIMAGE: almalinux
+            TAG: 8.6
+          - DOCKERFILE: alma_linux
+            BASEIMAGE: almalinux
+            TAG: 9.0
           - DOCKERFILE: amazon_linux
             BASEIMAGE: amazonlinux
             TAG: 1
