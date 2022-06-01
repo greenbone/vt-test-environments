@@ -7,8 +7,8 @@ ARG TAG
 
 # Lock releasever to the tag to pin the minor release
 RUN echo "${TAG}" > /etc/yum/vars/releasever \
-    # Activate baseurl, because their mirrorlist doesn't support minor releases
-    && sed -i "s/^#baseurl/baseurl/" /etc/yum.repos.d/* \
+    # Add "rocky-" prefix to repo to select minor release in mirrorlist
+    && sed -i "s/repo=/repo=rocky-/" /etc/yum.repos.d/* \
     && if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf install -y openssh-server \
     && dnf clean all \
