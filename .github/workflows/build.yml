@@ -69,6 +69,7 @@ jobs:
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
             TAG: 5
+            UPDATED: false
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
             TAG: 6
