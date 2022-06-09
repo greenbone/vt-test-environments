@@ -109,13 +109,31 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and publish Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
-          push: true
+          load: true
           file: ${{ matrix.DOCKERFILE }}.dockerfile
           tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
           build-args: |
             BASEIMAGE=${{ matrix.BASEIMAGE }}
             TAG=${{ matrix.TAG }}
+
+      - name: Test Docker image
+        run: |
+          docker run --rm -d --name target -p 2222:22 \
+            ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
+          sshpass -p demo ssh \
+            -o "StrictHostKeyChecking no" \
+            -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
+            -o "Ciphers $(ssh -Q ciphers | tr '\n' ',' | head -c -1)" \
+            demo@localhost -p 2222 echo "Hello from \$(whoami)@\$(hostname)"
+          docker stop target
+
+      - name: Publish Docker image
+        uses: docker/build-push-action@v2
+          with:
+            context: .
+            push: true
+            tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
