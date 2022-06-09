@@ -14,22 +14,22 @@ jobs:
         include:
           - DOCKERFILE: alma_linux
             BASEIMAGE: almalinux
-            TAG: 8.5
+            TAG: "8.5"
           - DOCKERFILE: alma_linux
             BASEIMAGE: almalinux
-            TAG: 8.6
+            TAG: "8.6"
           - DOCKERFILE: alma_linux
             BASEIMAGE: almalinux
-            TAG: 9.0
+            TAG: "9.0"
           - DOCKERFILE: amazon_linux
             BASEIMAGE: amazonlinux
-            TAG: 1
+            TAG: "1"
           - DOCKERFILE: amazon_linux
             BASEIMAGE: amazonlinux
-            TAG: 2
+            TAG: "2"
           - DOCKERFILE: amazon_linux
             BASEIMAGE: amazonlinux
-            TAG: 2022
+            TAG: "2022"
           - DOCKERFILE: debian_linux
             BASEIMAGE: debian/eol
             TAG: woody
@@ -62,41 +62,41 @@ jobs:
             TAG: bullseye
           - DOCKERFILE: mageia_linux
             BASEIMAGE: mageia
-            TAG: 7
+            TAG: "7"
           - DOCKERFILE: mageia_linux
             BASEIMAGE: mageia
-            TAG: 8
+            TAG: "8"
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
-            TAG: 5
+            TAG: "5"
             UPDATED: false
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
-            TAG: 6
+            TAG: "6"
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
-            TAG: 7
+            TAG: "7"
           - DOCKERFILE: oracle_linux
             BASEIMAGE: container-registry.oracle.com/os/oraclelinux
-            TAG: 8
+            TAG: "8"
           - DOCKERFILE: rocky_linux
             BASEIMAGE: rockylinux
-            TAG: 8.5
+            TAG: "8.5"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
-            TAG: 13.0
+            TAG: "13.0"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
-            TAG: 13.37
+            TAG: "13.37"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
-            TAG: 14.0
+            TAG: "14.0"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
-            TAG: 14.1
+            TAG: "14.1"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
-            TAG: 14.2
+            TAG: "14.2"
           - DOCKERFILE: slackware_linux
             BASEIMAGE: vbatts/slackware
             TAG: current
