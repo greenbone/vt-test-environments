@@ -136,4 +136,5 @@ jobs:
         with:
           context: .
           push: true
+          file: ${{ matrix.DOCKERFILE }}.dockerfile
           tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
