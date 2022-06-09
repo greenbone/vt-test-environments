@@ -33,6 +33,13 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `8`
 - Rocky Linux (`rocky_linux`)
     - `8.5`
+- Slackware Linux (`slackware_linux`)
+    - `13.0`
+    - `13.37`
+    - `14.0`
+    - `14.1`
+    - `14.2`
+    - `current` (15.0 at the moment)
 
 ## Build images
 To build e.g. the image for Mageia 8 use:
