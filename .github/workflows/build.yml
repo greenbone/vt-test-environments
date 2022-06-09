@@ -138,3 +138,6 @@ jobs:
           push: true
           file: ${{ matrix.DOCKERFILE }}.dockerfile
           tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
+          build-args: |
+            BASEIMAGE=${{ matrix.BASEIMAGE }}
+            TAG=${{ matrix.TAG }}
