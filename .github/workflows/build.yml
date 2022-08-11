@@ -79,6 +79,9 @@ jobs:
           - DOCKERFILE: oracle_linux
             BASEIMAGE: oraclelinux
             TAG: "8"
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: oraclelinux
+            TAG: "9"
           - DOCKERFILE: rocky_linux
             BASEIMAGE: rockylinux
             TAG: "8.5"
