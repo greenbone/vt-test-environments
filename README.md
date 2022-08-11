@@ -31,6 +31,7 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `6`
     - `7`
     - `8`
+    - `9`
 - Rocky Linux (`rocky_linux`)
     - `8.5`
 - Slackware Linux (`slackware_linux`)

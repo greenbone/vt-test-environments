@@ -67,18 +67,21 @@ jobs:
             BASEIMAGE: mageia
             TAG: "8"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            BASEIMAGE: oraclelinux
             TAG: "5"
             UPDATED: false
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            BASEIMAGE: oraclelinux
             TAG: "6"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            BASEIMAGE: oraclelinux
             TAG: "7"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: container-registry.oracle.com/os/oraclelinux
+            BASEIMAGE: oraclelinux
             TAG: "8"
+          - DOCKERFILE: oracle_linux
+            BASEIMAGE: oraclelinux
+            TAG: "9"
           - DOCKERFILE: rocky_linux
             BASEIMAGE: rockylinux
             TAG: "8.5"
