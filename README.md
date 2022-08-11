@@ -36,7 +36,6 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `8.5`
     - `8.6`
     - `9.0`
-- Slackware Linux (`slackware_linux`)
     - `13.0`
     - `13.37`
     - `14.0`
