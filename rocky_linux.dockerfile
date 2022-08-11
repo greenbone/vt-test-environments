@@ -7,7 +7,11 @@ ARG TAG
 
 # Lock releasever to the tag to pin the minor release
 RUN echo "${TAG}" > /etc/yum/vars/releasever \
-    # Add "rocky-" prefix to repo to select minor release in mirrorlist
+    # Older release are not in pub/, but in vault/
+    && echo "vault/rocky" > /etc/yum/vars/contentdir \
+    # Uncomment the baseurl, because the mirrorlist doesn't support older releases
+    && sed -i "s/#baseurl=/baseurl=/" /etc/yum.repos.d/* \
+    # Add "rocky-" prefix to repo to select minor release in mirrorlist (fallback for baseurl)
     && sed -i "s/repo=/repo=rocky-/" /etc/yum.repos.d/* \
     && if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf install -y openssh-server \
