@@ -4,15 +4,15 @@ Environments for VT testing
 Each Docker image comes with a pre-installed SSH server and a demo user (password: demo). This enables a VT developer to deploy a clean test environment within seconds.
 
 # Available images & tags
-- Alma Linux (`alma_linux`)
+- [Alma Linux](https://hub.docker.com/_/almalinux/tags) (`alma_linux`)
     - `8.5`
     - `8.6`
     - `9.0`
-- Amazon Linux (`amazon_linux`)
+- [Amazon Linux](https://hub.docker.com/_/amazonlinux/tags) (`amazon_linux`)
     - `1`
     - `2`
     - `2022`
-- Debian Linux (`debian_linux`)
+- [Debian Linux](https://hub.docker.com/_/debian/tags) (`debian_linux`)
     - `woody`
     - `sarge`
     - `etch`
@@ -23,19 +23,20 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `stretch`
     - `buster`
     - `bullseye`
-- Mageia Linux (`mageia_linux`)
+- [Mageia Linux](https://hub.docker.com/_/mageia/tags) (`mageia_linux`)
     - `7`
     - `8`
-- Oracle Linux (`oracle_linux`)
+- [Oracle Linux](https://hub.docker.com/_/oraclelinux/tags) (`oracle_linux`)
     - `5`
     - `6`
     - `7`
     - `8`
     - `9`
-- Rocky Linux (`rocky_linux`)
+- [Rocky Linux](https://hub.docker.com/_/rockylinux/tags) (`rocky_linux`)
     - `8.5`
     - `8.6`
     - `9.0`
+- [Slackware Linux](https://hub.docker.com/r/vbatts/slackware/tags) (`slackware_linux`)
     - `13.0`
     - `13.37`
     - `14.0`
