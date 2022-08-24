@@ -43,6 +43,30 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `14.1`
     - `14.2`
     - `current` (15.0 at the moment)
+- [Ubuntu Linux](https://hub.docker.com/_/ubuntu/tags) (`ubuntu_linux`)
+    - `10.04` (LTS, Lucid Lynx)
+    - `12.04` (LTS, Precise Pangolin)
+    - `12.10` (Quantal Quetzal)
+    - `13.04` (Raring Ringtail)
+    - `13.10` (Saucy Salamander)
+    - `14.04` (LTS, Trusty Tahr)
+    - `14.10` (Utopic Unicorn)
+    - `15.04` (Vivid Vervet)
+    - `15.10` (Wily Werewolf)
+    - `16.04` (LTS, Xenial Xerus)
+    - `16.10` (Yakkety Yak)
+    - `17.04` (Zesty Zapus)
+    - `17.10` (Artful Aardvark)
+    - `18.04` (LTS, Bionic Beaver)
+    - `18.10` (Cosmic Cuttlefish)
+    - `19.04` (Disco Dingo)
+    - `19.10` (Eoan Ermine)
+    - `20.04` (LTS, Focal Fossa)
+    - `20.10` (Groovy Gorilla)
+    - `21.04` (Hirsute Hippo)
+    - `21.10` (Impish Indri)
+    - `22.04` (LTS, Jammy Jellyfish)
+    - `22.10` (Kinetic Kudu)
 
 ## Build images
 To build e.g. the image for Mageia 8 use:
