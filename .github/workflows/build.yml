@@ -16,22 +16,16 @@ jobs:
       matrix:
         include:
           - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
             TAG: "8.5"
           - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
             TAG: "8.6"
           - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
             TAG: "9.0"
           - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
             TAG: "1"
           - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
             TAG: "2"
           - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
             TAG: "2022"
           - DOCKERFILE: debian_linux
             BASEIMAGE: debian/eol
@@ -55,131 +49,89 @@ jobs:
             BASEIMAGE: debian/eol
             TAG: jessie
           - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
             TAG: stretch
           - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
             TAG: buster
           - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
             TAG: bullseye
           - DOCKERFILE: mageia_linux
-            BASEIMAGE: mageia
             TAG: "7"
           - DOCKERFILE: mageia_linux
-            BASEIMAGE: mageia
             TAG: "8"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
             TAG: "5"
             UPDATED: false
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
             TAG: "6"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
             TAG: "7"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
             TAG: "8"
           - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
             TAG: "9"
           - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
             TAG: "8.5"
           - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
             TAG: "8.6"
           - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
             TAG: "9.0"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: "13.0"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: "13.37"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: "14.0"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: "14.1"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: "14.2"
           - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
             TAG: current
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "10.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "12.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "12.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "13.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "13.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "14.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "14.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "15.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "15.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "16.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "16.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "17.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "17.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "18.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "18.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "19.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "19.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "20.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "20.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "21.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "21.10"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "22.04"
           - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
             TAG: "22.10"
     steps:
       - name: Checkout repository

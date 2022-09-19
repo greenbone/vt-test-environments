@@ -1,4 +1,4 @@
-ARG BASEIMAGE
+ARG BASEIMAGE=vbatts/slackware
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
