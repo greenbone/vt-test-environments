@@ -1,0 +1,6 @@
+[EulerOS-base]
+name=EulerOS-base
+baseurl=https://mirrors.huaweicloud.com/euler/$releasever/os/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=https://mirrors.huaweicloud.com/euler/$releasever/os/RPM-GPG-KEY-EulerOS
