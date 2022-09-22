@@ -15,171 +15,123 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
+          - CONTEXT: operating_systems/alma_linux
             TAG: "8.5"
-          - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
+          - CONTEXT: operating_systems/alma_linux
             TAG: "8.6"
-          - DOCKERFILE: alma_linux
-            BASEIMAGE: almalinux
+          - CONTEXT: operating_systems/alma_linux
             TAG: "9.0"
-          - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
+          - CONTEXT: operating_systems/amazon_linux
             TAG: "1"
-          - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
+          - CONTEXT: operating_systems/amazon_linux
             TAG: "2"
-          - DOCKERFILE: amazon_linux
-            BASEIMAGE: amazonlinux
+          - CONTEXT: operating_systems/amazon_linux
             TAG: "2022"
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: woody
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: sarge
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: etch
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: lenny
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: squeeze
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: wheezy
-          - DOCKERFILE: debian_linux
+          - CONTEXT: operating_systems/debian_linux
             BASEIMAGE: debian/eol
             TAG: jessie
-          - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
+          - CONTEXT: operating_systems/debian_linux
             TAG: stretch
-          - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
+          - CONTEXT: operating_systems/debian_linux
             TAG: buster
-          - DOCKERFILE: debian_linux
-            BASEIMAGE: debian
+          - CONTEXT: operating_systems/debian_linux
             TAG: bullseye
-          - DOCKERFILE: mageia_linux
-            BASEIMAGE: mageia
+          - CONTEXT: operating_systems/mageia_linux
             TAG: "7"
-          - DOCKERFILE: mageia_linux
-            BASEIMAGE: mageia
+          - CONTEXT: operating_systems/mageia_linux
             TAG: "8"
-          - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
+          - CONTEXT: operating_systems/oracle_linux
             TAG: "5"
             UPDATED: false
-          - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
+          - CONTEXT: operating_systems/oracle_linux
             TAG: "6"
-          - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
+          - CONTEXT: operating_systems/oracle_linux
             TAG: "7"
-          - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
+          - CONTEXT: operating_systems/oracle_linux
             TAG: "8"
-          - DOCKERFILE: oracle_linux
-            BASEIMAGE: oraclelinux
+          - CONTEXT: operating_systems/oracle_linux
             TAG: "9"
-          - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
+          - CONTEXT: operating_systems/rocky_linux
             TAG: "8.5"
-          - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
+          - CONTEXT: operating_systems/rocky_linux
             TAG: "8.6"
-          - DOCKERFILE: rocky_linux
-            BASEIMAGE: rockylinux
+          - CONTEXT: operating_systems/rocky_linux
             TAG: "9.0"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: "13.0"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: "13.37"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: "14.0"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: "14.1"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: "14.2"
-          - DOCKERFILE: slackware_linux
-            BASEIMAGE: vbatts/slackware
+          - CONTEXT: operating_systems/slackware_linux
             TAG: current
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "10.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "12.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "12.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "13.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "13.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "14.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "14.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "15.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "15.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "16.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "16.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "17.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "17.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "18.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "18.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "19.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "19.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "20.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "20.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "21.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "21.10"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "22.04"
-          - DOCKERFILE: ubuntu_linux
-            BASEIMAGE: ubuntu
+          - CONTEXT: operating_systems/ubuntu_linux
             TAG: "22.10"
     steps:
       - name: Checkout repository
@@ -190,21 +142,31 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare environment variables
+        run: |
+          echo "IMAGE=ghcr.io/${{ github.repository }}/$(basename ${{ matrix.CONTEXT }}):${{ matrix.TAG }}" >> $GITHUB_ENV
+          echo "BUILD_ARGS<<EOF" >> $GITHUB_ENV
+          echo "TAG=${{ matrix.TAG }}" >> $GITHUB_ENV
+          if [[ -n "${{ matrix.BASEIMAGE }}" ]]; then
+            echo "BASEIMAGE=${{ matrix.BASEIMAGE }}" >> $GITHUB_ENV
+          fi
+          if [[ -n "${{ matrix.UPDATED }}" ]]; then
+            echo "UPDATED=${{ matrix.UPDATED }}" >> $GITHUB_ENV
+          fi
+          echo "EOF" >> $GITHUB_ENV
+
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ${{ matrix.CONTEXT }}
           load: true
-          file: ${{ matrix.DOCKERFILE }}.dockerfile
-          tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
-          build-args: |
-            BASEIMAGE=${{ matrix.BASEIMAGE }}
-            TAG=${{ matrix.TAG }}
+          tags: ${{ env.IMAGE }}
+          build-args: ${{ env.BUILD_ARGS }}
 
       - name: Test Docker image
         run: |
-          docker run --rm -d --name target -p 2222:22 \
-            ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
+          docker run --rm -d --name target -p 2222:22 ${{ env.IMAGE }}
           sshpass -p demo ssh \
             -o "StrictHostKeyChecking no" \
             -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
@@ -215,10 +177,7 @@ jobs:
       - name: Publish Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ${{ matrix.CONTEXT }}
           push: true
-          file: ${{ matrix.DOCKERFILE }}.dockerfile
-          tags: ghcr.io/${{ github.repository }}/${{ matrix.DOCKERFILE }}:${{ matrix.TAG }}
-          build-args: |
-            BASEIMAGE=${{ matrix.BASEIMAGE }}
-            TAG=${{ matrix.TAG }}
+          tags: ${{ env.IMAGE }}
+          build-args: ${{ env.BUILD_ARGS }}
