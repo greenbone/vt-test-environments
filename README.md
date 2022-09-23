@@ -1,9 +1,26 @@
+![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_new-logo_horizontal_rgb_small.png)
+
 # vt-test-environments
-Environments for VT testing
+This repository holds environments for VT testing. _Do not_ use them in production!
 
-Each Docker image comes with a pre-installed SSH server and a demo user (password: demo). This enables a VT developer to deploy a clean test environment within seconds.
+Each image comes with a pre-installed SSH server and a demo account (both name and password are "demo"). This unified behavior of different operating systems and applications enables a VT developer to deploy a clean test environment within seconds.
 
-# Available images & tags
+For questions regarding this repository, please consult the [Greenbone Community Forum](https://forum.greenbone.net/).
+
+## Usage
+Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia_linux:8`. The container is then running and SSH is exposed on port 2222 on your local machine and is ready to be scanned:
+```
+# ssh demo@localhost -p 2222
+Password: 
+[demo@fff64423955b ~]$ cat /etc/os-release 
+NAME="Mageia"
+VERSION="8"
+[...]
+```
+However, please use `docker exec -it target bash` preferrebly to interact with the container, because SSH might not be possible e.g. for very old images with no matching key exchange algorithm or requires removing the fingerprint of previously used containers from your known hosts file.
+
+When you're done, you can stop using `docker stop target`.
+## Available images & tags
 - [Alma Linux](https://hub.docker.com/_/almalinux/tags) (`alma_linux`)
     - `8.5`
     - `8.6`
@@ -77,25 +94,13 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `22.04` (LTS, Jammy Jellyfish)
     - `22.10` (Kinetic Kudu)
 
-## Build images
+## Build
 To build e.g. the image for Mageia 8 use:
 ```
-docker build -t mageia_linux:8 -f mageia_linux.dockerfile --build-arg BASEIMAGE=mageia --build-arg TAG=8 .
-```
-To build e.g. the image for Oracle Linux 5 (non-updated) use:
-```
-docker build -t oracle_linux:5 -f oracle_linux.dockerfile --build-arg BASEIMAGE=container-registry.oracle.com/os/oraclelinux --build-arg TAG=5 --build-arg UPDATED=false .
+docker build operating_systems/mageia_linux --build-arg=TAG=8 -t mageia_linux:8
 ```
 
-## Run container
-Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia_linux:8`. The container is then running and SSH is exposed on port 2222 on your local machine:
+If not specified otherwise, the image will be built with its packages explicitly updated. This is available for most images. To build the image for Oracle Linux 5 (non-updated) use:
 ```
-# ssh demo@localhost -p 2222
-Password: 
-[demo@fff64423955b ~]$ cat /etc/os-release 
-NAME="Mageia"
-VERSION="8"
-[...]
+docker build operating_systems/oracle_linux --build-arg=TAG=5 --build-arg=UPDATED=false -t oracle_linux:5
 ```
-
-When you're done, you can stop (and destroy, when run with `--rm`) using `docker stop target`.
