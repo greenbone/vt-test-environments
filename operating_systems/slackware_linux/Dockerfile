@@ -6,8 +6,8 @@ ARG UPDATED=true
 
 RUN echo "Y" | slackpkg update \
     # When updating, we need to upgrade slackpkg itself first. Otherwise upgrade-all will abort
-    # We can skip this step, if slackpkg is already up-to-date
-    && if [ "$UPDATED" = true ]; then slackpkg upgrade slackpkg || slackpkg upgrade-all; fi \
+    # We can skip this steps, if slackpkg or all packages are already up-to-date
+    && if [ "$UPDATED" = true ]; then slackpkg upgrade slackpkg || slackpkg upgrade-all || true; fi \
     && slackpkg install openssh \
     && rm -rf /var/lib/slackpkg/* \
     && useradd demo \

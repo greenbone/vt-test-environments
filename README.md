@@ -42,7 +42,8 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `14.0`
     - `14.1`
     - `14.2`
-    - `current` (15.0 at the moment)
+    - `15.0`
+    - `current` (15.0+ at the moment)
 - [Ubuntu Linux](https://hub.docker.com/_/ubuntu/tags) (`ubuntu_linux`)
     - `10.04` (LTS, Lucid Lynx)
     - `12.04` (LTS, Precise Pangolin)

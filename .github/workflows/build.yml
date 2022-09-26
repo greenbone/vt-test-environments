@@ -86,6 +86,8 @@ jobs:
           - CONTEXT: operating_systems/slackware_linux
             TAG: "14.2"
           - CONTEXT: operating_systems/slackware_linux
+            TAG: "15.0"
+          - CONTEXT: operating_systems/slackware_linux
             TAG: current
           - CONTEXT: operating_systems/ubuntu_linux
             TAG: "10.04"
