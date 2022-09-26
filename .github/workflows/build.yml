@@ -54,6 +54,20 @@ jobs:
             TAG: buster
           - CONTEXT: operating_systems/debian_linux
             TAG: bullseye
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.0"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.1"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.2"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.3"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.5"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.9"
+          - CONTEXT: operating_systems/euleros_linux
+            TAG: "2.10"
           - CONTEXT: operating_systems/mageia_linux
             TAG: "7"
           - CONTEXT: operating_systems/mageia_linux

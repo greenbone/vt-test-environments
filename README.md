@@ -23,6 +23,14 @@ Each Docker image comes with a pre-installed SSH server and a demo user (passwor
     - `stretch`
     - `buster`
     - `bullseye`
+- EulerOS Linux (`euleros_linux`)
+    - `2.0`
+    - `2.1`
+    - `2.2`
+    - `2.3`
+    - `2.5`
+    - `2.9`
+    - `2.10`
 - [Mageia Linux](https://hub.docker.com/_/mageia/tags) (`mageia_linux`)
     - `7`
     - `8`
