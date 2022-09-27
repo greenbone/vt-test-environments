@@ -1,14 +1,14 @@
 ![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_new-logo_horizontal_rgb_small.png)
 
 # vt-test-environments
-This repository holds environments for VT testing. _Do not_ use them in production!
+This repository holds environments for VT testing. Do _not_ use them in production!
 
 Each image comes with a pre-installed SSH server and a demo account (both name and password are "demo"). This unified behavior of different operating systems and applications enables a VT developer to deploy a clean test environment within seconds.
 
 For questions regarding this repository, please consult the [Greenbone Community Forum](https://forum.greenbone.net/).
 
 ## Usage
-Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia_linux:8`. The container is then running and SSH is exposed on port 2222 on your local machine and is ready to be scanned:
+Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia_linux:8`. The container is then running, SSH is exposed on port 2222 on the local machine and is ready to be scanned:
 ```
 # ssh demo@localhost -p 2222
 Password: 
@@ -19,7 +19,7 @@ VERSION="8"
 ```
 However, please use `docker exec -it target bash` preferrebly to interact with the container, because SSH might not be possible e.g. for very old images with no matching key exchange algorithm or requires removing the fingerprint of previously used containers from your known hosts file.
 
-When you're done, you can stop using `docker stop target`.
+When done, the container can be stopped with `docker stop target`.
 ## Available images & tags
 - [Alma Linux](https://hub.docker.com/_/almalinux/tags) (`alma_linux`)
     - `8.5`
