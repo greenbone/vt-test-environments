@@ -8,7 +8,7 @@ Each image comes with a pre-installed SSH server and a demo account (both name a
 For questions regarding this repository, please consult the [Greenbone Community Forum](https://forum.greenbone.net/).
 
 ## Usage
-Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia_linux:8`. The container is then running, SSH is exposed on port 2222 on the local machine and is ready to be scanned:
+Run `docker run --rm -d -p 2222:22 --name target ghcr.io/greenbone/vt-test-environments/mageia:8`. The container is then running, SSH is exposed on port 2222 on the local machine and is ready to be scanned:
 ```
 # ssh demo@localhost -p 2222
 Password: 
@@ -21,15 +21,15 @@ However, please use `docker exec -it target bash` preferrebly to interact with t
 
 When done, the container can be stopped with `docker stop target`.
 ## Available images & tags
-- [Alma Linux](https://hub.docker.com/_/almalinux/tags) (`alma_linux`)
+- [AlmaLinux](https://hub.docker.com/_/almalinux) (`almalinux`)
     - `8.5`
     - `8.6`
     - `9.0`
-- [Amazon Linux](https://hub.docker.com/_/amazonlinux/tags) (`amazon_linux`)
+- [Amazon Linux](https://hub.docker.com/_/amazonlinux) (`amazonlinux`)
     - `1`
     - `2`
     - `2022`
-- [Debian Linux](https://hub.docker.com/_/debian/tags) (`debian_linux`)
+- [Debian](https://hub.docker.com/_/debian) (`debian`)
     - `woody`
     - `sarge`
     - `etch`
@@ -40,7 +40,7 @@ When done, the container can be stopped with `docker stop target`.
     - `stretch`
     - `buster`
     - `bullseye`
-- EulerOS Linux (`euleros_linux`)
+- EulerOS (`euleros`)
     - `2.0`
     - `2.1`
     - `2.2`
@@ -48,20 +48,20 @@ When done, the container can be stopped with `docker stop target`.
     - `2.5`
     - `2.9`
     - `2.10`
-- [Mageia Linux](https://hub.docker.com/_/mageia/tags) (`mageia_linux`)
+- [Mageia](https://hub.docker.com/_/mageia) (`mageia`)
     - `7`
     - `8`
-- [Oracle Linux](https://hub.docker.com/_/oraclelinux/tags) (`oracle_linux`)
+- [Oracle Linux](https://hub.docker.com/_/oraclelinux) (`oraclelinux`)
     - `5`
     - `6`
     - `7`
     - `8`
     - `9`
-- [Rocky Linux](https://hub.docker.com/_/rockylinux/tags) (`rocky_linux`)
+- [Rocky Linux](https://hub.docker.com/_/rockylinux) (`rockylinux`)
     - `8.5`
     - `8.6`
     - `9.0`
-- [Slackware Linux](https://hub.docker.com/r/vbatts/slackware/tags) (`slackware_linux`)
+- [Slackware](https://hub.docker.com/r/vbatts/slackware) (`slackware`)
     - `13.0`
     - `13.37`
     - `14.0`
@@ -69,7 +69,7 @@ When done, the container can be stopped with `docker stop target`.
     - `14.2`
     - `15.0`
     - `current` (15.0+ at the moment)
-- [Ubuntu Linux](https://hub.docker.com/_/ubuntu/tags) (`ubuntu_linux`)
+- [Ubuntu](https://hub.docker.com/_/ubuntu) (`ubuntu`)
     - `10.04` (LTS, Lucid Lynx)
     - `12.04` (LTS, Precise Pangolin)
     - `12.10` (Quantal Quetzal)
@@ -97,10 +97,10 @@ When done, the container can be stopped with `docker stop target`.
 ## Build
 To build e.g. the image for Mageia 8 use:
 ```
-docker build operating_systems/mageia_linux --build-arg=TAG=8 -t mageia_linux:8
+docker build operating_systems/mageia --build-arg=TAG=8 -t mageia:8
 ```
 
 If not specified otherwise, the image will be built with its packages explicitly updated. This is available for most images. To build the image for Oracle Linux 5 (non-updated) use:
 ```
-docker build operating_systems/oracle_linux --build-arg=TAG=5 --build-arg=UPDATED=false -t oracle_linux:5
+docker build operating_systems/oraclelinux --build-arg=TAG=5 --build-arg=UPDATED=false -t oraclelinux:5
 ```
