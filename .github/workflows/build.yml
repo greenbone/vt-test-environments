@@ -15,139 +15,139 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - CONTEXT: operating_systems/alma_linux
+          - CONTEXT: operating_systems/almalinux
             TAG: "8.5"
-          - CONTEXT: operating_systems/alma_linux
+          - CONTEXT: operating_systems/almalinux
             TAG: "8.6"
-          - CONTEXT: operating_systems/alma_linux
+          - CONTEXT: operating_systems/almalinux
             TAG: "9.0"
-          - CONTEXT: operating_systems/amazon_linux
+          - CONTEXT: operating_systems/amazonlinux
             TAG: "1"
-          - CONTEXT: operating_systems/amazon_linux
+          - CONTEXT: operating_systems/amazonlinux
             TAG: "2"
-          - CONTEXT: operating_systems/amazon_linux
+          - CONTEXT: operating_systems/amazonlinux
             TAG: "2022"
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: woody
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: sarge
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: etch
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: lenny
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: squeeze
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: wheezy
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: jessie
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             TAG: stretch
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             TAG: buster
-          - CONTEXT: operating_systems/debian_linux
+          - CONTEXT: operating_systems/debian
             TAG: bullseye
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.0"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.1"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.2"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.3"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.5"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.9"
-          - CONTEXT: operating_systems/euleros_linux
+          - CONTEXT: operating_systems/euleros
             TAG: "2.10"
-          - CONTEXT: operating_systems/mageia_linux
+          - CONTEXT: operating_systems/mageia
             TAG: "7"
-          - CONTEXT: operating_systems/mageia_linux
+          - CONTEXT: operating_systems/mageia
             TAG: "8"
-          - CONTEXT: operating_systems/oracle_linux
+          - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
             UPDATED: false
-          - CONTEXT: operating_systems/oracle_linux
+          - CONTEXT: operating_systems/oraclelinux
             TAG: "6"
-          - CONTEXT: operating_systems/oracle_linux
+          - CONTEXT: operating_systems/oraclelinux
             TAG: "7"
-          - CONTEXT: operating_systems/oracle_linux
+          - CONTEXT: operating_systems/oraclelinux
             TAG: "8"
-          - CONTEXT: operating_systems/oracle_linux
+          - CONTEXT: operating_systems/oraclelinux
             TAG: "9"
-          - CONTEXT: operating_systems/rocky_linux
+          - CONTEXT: operating_systems/rockylinux
             TAG: "8.5"
-          - CONTEXT: operating_systems/rocky_linux
+          - CONTEXT: operating_systems/rockylinux
             TAG: "8.6"
-          - CONTEXT: operating_systems/rocky_linux
+          - CONTEXT: operating_systems/rockylinux
             TAG: "9.0"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "13.0"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "13.37"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "14.0"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "14.1"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "14.2"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: "15.0"
-          - CONTEXT: operating_systems/slackware_linux
+          - CONTEXT: operating_systems/slackware
             TAG: current
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "10.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "12.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "12.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "13.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "13.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "14.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "14.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "15.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "15.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "16.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "16.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "17.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "17.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "18.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "18.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "19.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "19.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "20.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "20.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "21.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "21.10"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "22.04"
-          - CONTEXT: operating_systems/ubuntu_linux
+          - CONTEXT: operating_systems/ubuntu
             TAG: "22.10"
     steps:
       - name: Checkout repository
