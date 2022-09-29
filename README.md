@@ -21,15 +21,15 @@ However, please use `docker exec -it target bash` preferrebly to interact with t
 
 When done, the container can be stopped with `docker stop target`.
 ## Available images & tags
-- [AlmaLinux](https://hub.docker.com/_/almalinux) (`almalinux`)
+- [AlmaLinux](https://ghcr.io/greenbone/vt-test-environments/almalinux) (`almalinux`)
     - `8.5`
     - `8.6`
     - `9.0`
-- [Amazon Linux](https://hub.docker.com/_/amazonlinux) (`amazonlinux`)
+- [Amazon Linux](https://ghcr.io/greenbone/vt-test-environments/amazonlinux) (`amazonlinux`)
     - `1`
     - `2`
     - `2022`
-- [Debian](https://hub.docker.com/_/debian) (`debian`)
+- [Debian](https://ghcr.io/greenbone/vt-test-environments/debian) (`debian`)
     - `woody`
     - `sarge`
     - `etch`
@@ -40,7 +40,7 @@ When done, the container can be stopped with `docker stop target`.
     - `stretch`
     - `buster`
     - `bullseye`
-- EulerOS (`euleros`)
+- [EulerOS](https://ghcr.io/greenbone/vt-test-environments/euleros) (`euleros`)
     - `2.0`
     - `2.1`
     - `2.2`
@@ -48,20 +48,20 @@ When done, the container can be stopped with `docker stop target`.
     - `2.5`
     - `2.9`
     - `2.10`
-- [Mageia](https://hub.docker.com/_/mageia) (`mageia`)
+- [Mageia](https://ghcr.io/greenbone/vt-test-environments/mageia) (`mageia`)
     - `7`
     - `8`
-- [Oracle Linux](https://hub.docker.com/_/oraclelinux) (`oraclelinux`)
+- [Oracle Linux](https://ghcr.io/greenbone/vt-test-environments/oraclelinux) (`oraclelinux`)
     - `5`
     - `6`
     - `7`
     - `8`
     - `9`
-- [Rocky Linux](https://hub.docker.com/_/rockylinux) (`rockylinux`)
+- [Rocky Linux](https://ghcr.io/greenbone/vt-test-environments/rockylinux) (`rockylinux`)
     - `8.5`
     - `8.6`
     - `9.0`
-- [Slackware](https://hub.docker.com/r/vbatts/slackware) (`slackware`)
+- [Slackware](https://ghcr.io/greenbone/vt-test-environments/slackware) (`slackware`)
     - `13.0`
     - `13.37`
     - `14.0`
@@ -69,7 +69,7 @@ When done, the container can be stopped with `docker stop target`.
     - `14.2`
     - `15.0`
     - `current` (15.0+ at the moment)
-- [Ubuntu](https://hub.docker.com/_/ubuntu) (`ubuntu`)
+- [Ubuntu](https://ghcr.io/greenbone/vt-test-environments/ubuntu) (`ubuntu`)
     - `10.04` (LTS, Lucid Lynx)
     - `12.04` (LTS, Precise Pangolin)
     - `12.10` (Quantal Quetzal)
