@@ -22,6 +22,7 @@ However, please use `docker exec -it target bash` preferrebly to interact with t
 When done, the container can be stopped with `docker stop target`.
 ## Available images & tags
 - [AlmaLinux](https://ghcr.io/greenbone/vt-test-environments/almalinux) (`almalinux`)
+    - `8.4`
     - `8.5`
     - `8.6`
     - `9.0`

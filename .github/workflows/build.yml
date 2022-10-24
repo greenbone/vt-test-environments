@@ -16,6 +16,8 @@ jobs:
       matrix:
         include:
           - CONTEXT: operating_systems/almalinux
+            TAG: "8.4"
+          - CONTEXT: operating_systems/almalinux
             TAG: "8.5"
           - CONTEXT: operating_systems/almalinux
             TAG: "8.6"
