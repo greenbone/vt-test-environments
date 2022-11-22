@@ -22,7 +22,11 @@ jobs:
           - CONTEXT: operating_systems/almalinux
             TAG: "8.6"
           - CONTEXT: operating_systems/almalinux
+            TAG: "8.7"
+          - CONTEXT: operating_systems/almalinux
             TAG: "9.0"
+          - CONTEXT: operating_systems/almalinux
+            TAG: "9.1"
           - CONTEXT: operating_systems/amazonlinux
             TAG: "1"
           - CONTEXT: operating_systems/amazonlinux
