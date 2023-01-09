@@ -94,7 +94,11 @@ jobs:
           - CONTEXT: operating_systems/rockylinux
             TAG: "8.6"
           - CONTEXT: operating_systems/rockylinux
+            TAG: "8.7"
+          - CONTEXT: operating_systems/rockylinux
             TAG: "9.0"
+          - CONTEXT: operating_systems/rockylinux
+            TAG: "9.1"
           - CONTEXT: operating_systems/slackware
             TAG: "13.0"
           - CONTEXT: operating_systems/slackware
