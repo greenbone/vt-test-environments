@@ -200,7 +200,7 @@ jobs:
             -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
             -o "Ciphers $(ssh -Q ciphers | tr '\n' ',' | head -c -1)" \
             -o "HostKeyAlgorithms $(ssh -Q key | tr '\n' ',' | head -c -1)" \
-            demo@localhost -p 2222 echo "Hello from \$(whoami)@\$(hostname)"
+            demo@localhost -p 2222 echo "Hello from \$(whoami)@\$(cat /etc/hostname)"
           docker stop target
 
       - name: Publish Docker image
