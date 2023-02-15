@@ -2,6 +2,8 @@ name: Build and publish Docker images
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
@@ -203,6 +205,7 @@ jobs:
 
       - name: Publish Docker image
         uses: docker/build-push-action@v4
+        if: ${{ github.event_name == 'push' }}
         with:
           context: ${{ matrix.CONTEXT }}
           push: true
