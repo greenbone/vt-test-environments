@@ -91,6 +91,62 @@ jobs:
             TAG: "8"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "9"
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi7
+            TAG: "7.6"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi7
+            TAG: "7.7"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi7
+            TAG: "7.8"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi7
+            TAG: "7.9"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.0"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.1"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.2"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.3"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.4"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.5"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.6"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi8
+            TAG: "8.7"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi9
+            TAG: "9.0.0"
+            UPDATED: false
+          - CONTEXT: operating_systems/rhel
+            BASEIMAGE: registry.access.redhat.com/ubi9
+            TAG: "9.1.0"
+            UPDATED: false
           - CONTEXT: operating_systems/rockylinux
             TAG: "8.5"
           - CONTEXT: operating_systems/rockylinux
