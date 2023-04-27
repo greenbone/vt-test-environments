@@ -113,6 +113,7 @@ When done, the container can be stopped with `docker stop target`.
     - `21.10` (Impish Indri)
     - `22.04` (LTS, Jammy Jellyfish)
     - `22.10` (Kinetic Kudu)
+    - `23.04` (Lunar Lobster)
 
 ## Build
 To build e.g. the image for Mageia 8 use:
