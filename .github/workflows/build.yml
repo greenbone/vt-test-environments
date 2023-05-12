@@ -17,6 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - CONTEXT: applications/home-assistant
+            TAG: "2023.5.2"
           - CONTEXT: operating_systems/almalinux
             TAG: "8.4"
           - CONTEXT: operating_systems/almalinux
