@@ -21,6 +21,8 @@ However, please use `docker exec -it target bash` preferrebly to interact with t
 
 When done, the container can be stopped with `docker stop target`.
 ## Available images & tags
+- [Home Assistant](https://ghcr.io/greenbone/vt-test-environments/home-assistant) (`home-assistant`, run with `--network host`, when requiring e.g. mDNS capabilities)
+    - `2023.5.2`
 - [AlmaLinux](https://ghcr.io/greenbone/vt-test-environments/almalinux) (`almalinux`)
     - `8.4`
     - `8.5`
