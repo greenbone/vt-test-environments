@@ -41,8 +41,8 @@ When done, the container can be stopped with `docker stop target`.
     - `lenny`
     - `squeeze`
     - `wheezy`
-    - ~~`jessie`~~ (Temporarily disabled: #40)
-    - ~~`stretch`~~ (Temporarily disabled: #40)
+    - ~~`jessie`~~ (Temporarily disabled: PR #40)
+    - ~~`stretch`~~ (Temporarily disabled: PR #40)
     - `buster`
     - `bullseye`
 - [EulerOS](https://ghcr.io/greenbone/vt-test-environments/euleros) (`euleros`)
