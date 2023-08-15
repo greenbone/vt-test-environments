@@ -82,8 +82,10 @@ When done, the container can be stopped with `docker stop target`.
     - `8.5`
     - `8.6`
     - `8.7`
+    - `8.8`
     - `9.0`
     - `9.1`
+    - `9.2`
 - [Slackware](https://ghcr.io/greenbone/vt-test-environments/slackware) (`slackware`)
     - `13.0`
     - `13.37`
