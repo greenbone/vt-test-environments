@@ -231,7 +231,7 @@ jobs:
             TAG: "23.04"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Login to Docker Registry
         uses: docker/login-action@v2
         with:
