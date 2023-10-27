@@ -253,7 +253,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Build Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ${{ matrix.CONTEXT }}
           load: true
@@ -272,7 +272,7 @@ jobs:
           docker stop target
 
       - name: Publish Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         if: ${{ github.event_name == 'push' }}
         with:
           context: ${{ matrix.CONTEXT }}
