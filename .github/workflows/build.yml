@@ -39,6 +39,8 @@ jobs:
             TAG: "2"
           - CONTEXT: operating_systems/amazonlinux
             TAG: "2022"
+          - CONTEXT: operating_systems/amazonlinux
+            TAG: "2023"
           - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: woody

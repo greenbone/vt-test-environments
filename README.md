@@ -34,6 +34,7 @@ When done, the container can be stopped with `docker stop target`.
     - `1`
     - `2`
     - `2022`
+    - `2023`
 - [Debian](https://ghcr.io/greenbone/vt-test-environments/debian) (`debian`)
     - `woody`
     - `sarge`
