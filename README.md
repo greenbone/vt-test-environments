@@ -47,6 +47,7 @@ When done, the container can be stopped with `docker stop target`.
     - `buster`
     - `bullseye`
     - `bookworm`
+    - `trixie`
 - [EulerOS](https://ghcr.io/greenbone/vt-test-environments/euleros) (`euleros`)
     - `2.0`
     - `2.1`
