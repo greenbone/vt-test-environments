@@ -70,6 +70,8 @@ jobs:
             TAG: bullseye
           - CONTEXT: operating_systems/debian
             TAG: bookworm
+          - CONTEXT: operating_systems/debian
+            TAG: trixie
           - CONTEXT: operating_systems/euleros
             TAG: "2.0"
           - CONTEXT: operating_systems/euleros
