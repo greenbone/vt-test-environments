@@ -235,6 +235,8 @@ jobs:
             TAG: "22.10"
           - CONTEXT: operating_systems/ubuntu
             TAG: "23.04"
+          - CONTEXT: operating_systems/ubuntu
+            TAG: "23.10"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
