@@ -90,6 +90,8 @@ jobs:
             TAG: "7"
           - CONTEXT: operating_systems/mageia
             TAG: "8"
+          - CONTEXT: operating_systems/mageia
+            TAG: "9"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
             UPDATED: false

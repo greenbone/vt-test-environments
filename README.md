@@ -59,6 +59,7 @@ When done, the container can be stopped with `docker stop target`.
 - [Mageia](https://ghcr.io/greenbone/vt-test-environments/mageia) (`mageia`)
     - `7`
     - `8`
+    - `9`
 - [Oracle Linux](https://ghcr.io/greenbone/vt-test-environments/oraclelinux) (`oraclelinux`)
     - `5`
     - `6`
