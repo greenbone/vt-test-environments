@@ -123,6 +123,7 @@ When done, the container can be stopped with `docker stop target`.
     - `22.10` (Kinetic Kudu)
     - `23.04` (Lunar Lobster)
     - `23.10` (Mantic Minotaur)
+    - `24.04` (Noble Numbat)
 
 ## Build
 To build e.g. the image for Mageia 8 use:
