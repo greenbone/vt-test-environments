@@ -30,5 +30,7 @@ You can use any Debian-based baseimage from [vt-test-environments](https://githu
 For the example above, run:
 
 ```
-docker run --rm -it -p 80:80 -p 445:445 -p 2222:22 -p 3306:3306 generic:debian_trixie
+docker run --rm -it -p 2222:22 -p 80:80 -p 445:445 -p 3306:3306 generic:debian_trixie
 ```
+
+Note: In this example, I mapped all container ports to the host, except for port 22, which is mapped to port 2222 in the host.
