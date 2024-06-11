@@ -9,7 +9,7 @@ This image contains generic services to test OS detection VTs. It's based on our
 - `apache2` (port 80)
 - `php`
 - `mariadb-server` (port 3306)
-- `samba` (port 139 and 445)
+- `samba` (port 445)
 
 ## Build
 

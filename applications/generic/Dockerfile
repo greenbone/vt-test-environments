@@ -27,4 +27,4 @@ RUN sed -i "/^\[global\]/a\   server min protocol = NT1" /etc/samba/smb.conf
 ADD init.sh /
 CMD [ "/init.sh" ]
 
-EXPOSE 80 139 445 3306
+EXPOSE 80 445 3306
