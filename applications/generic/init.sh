@@ -2,7 +2,9 @@
 set -e
 
 source /etc/os-release
-if (( VERSION_ID <= 10 ))
+# In Debian 10 and Ubuntu 20.10 or earlier the init file is called differently
+if [ "$NAME" = "Debian" ] && dpkg --compare-versions "$VERSION_ID" le 10 \
+    || [ "$NAME" = "Ubuntu" ] && dpkg --compare-versions "$VERSION_ID" le 20.10
 then
     service mysql start
 else
