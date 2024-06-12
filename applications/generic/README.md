@@ -5,7 +5,7 @@ This image contains generic services to test OS detection VTs. It's based on our
 
 ## Services installed
 
-- `openssh-server` (port 22, inherited from the baseimage)
+- `openssh-server` (port 22, inherited from the base image)
 - `apache2` (port 80)
 - `php`
 - `mariadb-server` (port 3306)
@@ -14,8 +14,8 @@ This image contains generic services to test OS detection VTs. It's based on our
 ## Build
 
 The Dockerfile requires two build arguments:
-- `BASEIMAGE`: The name of the baseimage to build upon
-- `TAG`: The tag of the baseimage to build upon
+- `BASEIMAGE`: The name of the base image to build upon
+- `TAG`: The tag of the base image to build upon
 
 For example, to build the generic test image for Debian trixie (`ghcr.io/greenbone/vt-test-environments/debian:trixie`) and save under `generic:debian_trixie` run:
 
@@ -23,7 +23,7 @@ For example, to build the generic test image for Debian trixie (`ghcr.io/greenbo
 docker build --pull --build-arg BASEIMAGE=debian --build-arg TAG=trixie applications/generic -t generic:debian_trixie
 ```
 
-You can use any Debian-based baseimage from [vt-test-environments](https://github.com/orgs/greenbone/packages?repo_name=vt-test-environments).
+You can use any Debian-based base image from [vt-test-environments](https://github.com/orgs/greenbone/packages?repo_name=vt-test-environments).
 
 
 ## Usage
