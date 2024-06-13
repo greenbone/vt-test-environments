@@ -17,4 +17,6 @@ do
     service $service start
 done
 
+echo "Ready!"
+
 sleep infinity
