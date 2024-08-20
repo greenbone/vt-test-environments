@@ -98,6 +98,22 @@ jobs:
             TAG: "8"
           - CONTEXT: operating_systems/mageia
             TAG: "9"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "22.03-lts"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "22.03-lts-sp1"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "22.03-lts-sp2"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "22.03-lts-sp3"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "22.03-lts-sp4"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "23.03"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "23.09"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "24.03-lts"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
             UPDATED: false
