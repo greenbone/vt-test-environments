@@ -60,6 +60,9 @@ When done, the container can be stopped with `docker stop target`.
     - `2.5`
     - `2.9`
     - `2.10`
+- [Fedora](https://ghcr.io/greenbone/vt-test-environments/fedora) (`fedora`)
+    - `39`
+    - `40`
 - [Mageia](https://ghcr.io/greenbone/vt-test-environments/mageia) (`mageia`)
     - `7`
     - `8`
