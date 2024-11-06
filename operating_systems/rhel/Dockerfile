@@ -20,3 +20,5 @@ RUN if [ "$UPDATED" = true ]; then \
     && ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
 
 CMD [ "/usr/sbin/sshd", "-D" ]
+
+EXPOSE 22
