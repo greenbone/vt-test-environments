@@ -12,3 +12,5 @@ RUN if [ "$UPDATED" = true ]; then yum upgrade -y && yum clean all; fi \
     && (ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N "" || true)
 
 CMD [ "/usr/sbin/sshd", "-D" ]
+
+EXPOSE 22
