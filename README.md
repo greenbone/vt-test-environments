@@ -127,7 +127,7 @@ When done, the container can be stopped with `docker stop target`.
   - `14.1`
   - `14.2`
   - `15.0`
-  - `current` (15.0+ at the moment)
+  - `current` (15.0+ at the moment but currently disabled due to build failures)
 - [Ubuntu](https://ghcr.io/greenbone/vt-test-environments/ubuntu) (`ubuntu`)
   - `10.04` (LTS, Lucid Lynx)
   - `12.04` (LTS, Precise Pangolin)
