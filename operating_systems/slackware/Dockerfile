@@ -5,8 +5,9 @@ FROM ${BASEIMAGE}:${TAG}
 ARG UPDATED=true
 
 RUN slackpkg update \
-    # When updating, we need to upgrade slackpkg itself first. Otherwise upgrade-all will abort
-    # We can skip this steps, if slackpkg or all packages are already up-to-date
+    # When updating, we need to upgrade slackpkg itself first. Otherwise upgrade-all will abort.
+    # We can skip this steps, if slackpkg or all packages are already up-to-date.
+    # slackpkg upgrade also needs to be called twice, because some packages might fail in the first run, which work in the second.
     && if [ "$UPDATED" = true ]; then slackpkg upgrade slackpkg && slackpkg upgrade-all || true && slackpkg upgrade-all; fi \
     && slackpkg install openssh \
     && rm -rf /var/lib/slackpkg/* \
