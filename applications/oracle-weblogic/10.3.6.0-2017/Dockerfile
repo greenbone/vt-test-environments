@@ -12,7 +12,7 @@ RUN ( \
     if [ $? = 100 ]; then sed -i "s/security\|archive/old-releases/" /etc/apt/sources.list && apt-get update; fi \
     ) \
     && if [ "$UPDATED" = true ]; then apt-get upgrade -y; fi \
-    && apt-get install -y openssh-server \
+    && apt-get install --no-install-recommends -y openssh-server \
     && rm -rf /var/lib/apt/lists/* \
     && useradd demo \
     && echo "demo:demo" | chpasswd \
