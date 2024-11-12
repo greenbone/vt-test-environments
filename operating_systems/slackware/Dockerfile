@@ -1,4 +1,4 @@
-ARG BASEIMAGE=vbatts/slackware
+ARG BASEIMAGE=docker.io/vbatts/slackware
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
