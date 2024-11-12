@@ -304,7 +304,7 @@ jobs:
 
       - name: Test Docker image
         run: |
-          podman run --rm -d --name target -p 2222:22 ${{ env.IMAGE }}:${{ env.TAG }}
+          podman run --rm -d --name target -p 2222:22 ${{ env.IMAGE }}
           sshpass -p demo ssh \
             -o "StrictHostKeyChecking no" \
             -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
