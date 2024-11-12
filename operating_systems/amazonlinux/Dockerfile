@@ -1,4 +1,4 @@
-ARG BASEIMAGE=amazonlinux
+ARG BASEIMAGE=docker.io/library/amazonlinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

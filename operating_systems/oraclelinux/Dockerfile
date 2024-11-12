@@ -1,4 +1,4 @@
-ARG BASEIMAGE=oraclelinux
+ARG BASEIMAGE=docker.io/library/oraclelinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

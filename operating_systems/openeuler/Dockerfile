@@ -1,4 +1,4 @@
-ARG BASEIMAGE=openeuler/openeuler
+ARG BASEIMAGE=docker.io/openeuler/openeuler
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

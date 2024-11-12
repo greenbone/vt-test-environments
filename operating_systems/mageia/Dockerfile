@@ -1,4 +1,4 @@
-ARG BASEIMAGE=mageia
+ARG BASEIMAGE=docker.io/library/mageia
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

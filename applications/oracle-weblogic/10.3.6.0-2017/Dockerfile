@@ -1,4 +1,4 @@
-ARG BASEIMAGE=vulhub/weblogic
+ARG BASEIMAGE=docker.io/vulhub/weblogic
 ARG TAG=10.3.6.0-2017
 
 FROM ${BASEIMAGE}:${TAG}

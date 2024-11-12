@@ -1,4 +1,4 @@
-ARG BASEIMAGE=almalinux
+ARG BASEIMAGE=docker.io/library/almalinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

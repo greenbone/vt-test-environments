@@ -1,4 +1,4 @@
-ARG BASEIMAGE=fedora
+ARG BASEIMAGE=docker.io/library/fedora
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

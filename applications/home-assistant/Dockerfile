@@ -1,4 +1,4 @@
-ARG BASEIMAGE=homeassistant/home-assistant
+ARG BASEIMAGE=docker.io/homeassistant/home-assistant
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

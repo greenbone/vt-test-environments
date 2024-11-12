@@ -1,4 +1,4 @@
-ARG BASEIMAGE=rockylinux
+ARG BASEIMAGE=docker.io/library/rockylinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

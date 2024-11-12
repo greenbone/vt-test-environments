@@ -1,4 +1,4 @@
-ARG BASEIMAGE=ubuntu
+ARG BASEIMAGE=docker.io/library/ubuntu
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}

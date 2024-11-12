@@ -1,4 +1,4 @@
-ARG BASEIMAGE=debian
+ARG BASEIMAGE=docker.io/library/debian
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
