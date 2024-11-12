@@ -202,6 +202,7 @@ jobs:
             TAG: "15.0"
           - CONTEXT: operating_systems/slackware
             TAG: current
+            UPDATED: true
           - CONTEXT: operating_systems/ubuntu
             TAG: "10.04"
           - CONTEXT: operating_systems/ubuntu
