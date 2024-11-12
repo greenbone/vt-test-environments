@@ -2,7 +2,7 @@ ARG BASEIMAGE=oraclelinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 RUN if [ "$UPDATED" = true ]; then yum upgrade -y && yum clean all; fi \
     && useradd demo \

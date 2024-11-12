@@ -2,7 +2,7 @@ ARG BASEIMAGE=vulhub/weblogic
 ARG TAG=10.3.6.0-2017
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN ( \

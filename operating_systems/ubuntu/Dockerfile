@@ -2,7 +2,7 @@ ARG BASEIMAGE=ubuntu
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN ( \

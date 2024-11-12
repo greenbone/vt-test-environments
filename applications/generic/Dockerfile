@@ -2,7 +2,7 @@ ARG BASEIMAGE
 ARG TAG
 
 FROM ghcr.io/greenbone/vt-test-environments/${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 ARG TAG
 
 # Install dependencies

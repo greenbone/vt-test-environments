@@ -164,8 +164,8 @@ To build e.g. the image for Mageia 8 use:
 docker build operating_systems/mageia --build-arg=TAG=8 -t mageia:8
 ```
 
-If not specified otherwise, the image will be built with its packages explicitly updated. This is available for most images. To build the image for Oracle Linux 5 (non-updated) use:
+If not specified otherwise, the image will be built with its packages explicitly not updated. This is available for most images. To build the image for Oracle Linux 5 (updated) use:
 
 ```
-docker build operating_systems/oraclelinux --build-arg=TAG=5 --build-arg=UPDATED=false -t oraclelinux:5
+docker build operating_systems/oraclelinux --build-arg=TAG=5 --build-arg=UPDATED=true -t oraclelinux:5
 ```

@@ -2,7 +2,7 @@ ARG BASEIMAGE=vbatts/slackware
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 RUN slackpkg update \
     # When updating, we need to upgrade slackpkg itself first. Otherwise upgrade-all will abort.

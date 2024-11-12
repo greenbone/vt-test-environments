@@ -2,7 +2,7 @@ ARG BASEIMAGE=openeuler/openeuler
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 RUN if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf install -y openssh-server passwd \
