@@ -1,8 +1,8 @@
-ARG BASEIMAGE=amazonlinux
+ARG BASEIMAGE=docker.io/library/amazonlinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 RUN if [ "$UPDATED" = true ]; then yum upgrade -y; fi \
     && yum install -y openssh-server passwd \

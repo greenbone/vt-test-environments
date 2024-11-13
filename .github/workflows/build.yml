@@ -124,7 +124,6 @@ jobs:
             TAG: "24.03-lts"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
-            UPDATED: false
           - CONTEXT: operating_systems/oraclelinux
             TAG: "6"
           - CONTEXT: operating_systems/oraclelinux
@@ -136,59 +135,45 @@ jobs:
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi7
             TAG: "7.6"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi7
             TAG: "7.7"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi7
             TAG: "7.8"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi7
             TAG: "7.9"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.0"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.1"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.2"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.3"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.4"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.5"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.6"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi8
             TAG: "8.7"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi9
             TAG: "9.0.0"
-            UPDATED: false
           - CONTEXT: operating_systems/rhel
             BASEIMAGE: registry.access.redhat.com/ubi9
             TAG: "9.1.0"
-            UPDATED: false
           - CONTEXT: operating_systems/rockylinux
             TAG: "8.5"
           - CONTEXT: operating_systems/rockylinux
@@ -217,6 +202,7 @@ jobs:
             TAG: "15.0"
           - CONTEXT: operating_systems/slackware
             TAG: current
+            UPDATED: true
           - CONTEXT: operating_systems/ubuntu
             TAG: "10.04"
           - CONTEXT: operating_systems/ubuntu
@@ -273,9 +259,9 @@ jobs:
             TAG: "24.10"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Login to Docker Registry
-        uses: docker/login-action@v3
+        uses: redhat-actions/podman-login@4934294ad0449894bcd1e9f191899d7292469603 # v1.7
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -295,29 +281,26 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Build Docker image
-        uses: docker/build-push-action@v6
+        uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2.13
         with:
           context: ${{ matrix.CONTEXT }}
-          load: true
+          containerfiles: ${{ matrix.CONTEXT }}/Dockerfile
           tags: ${{ env.IMAGE }}
           build-args: ${{ env.BUILD_ARGS }}
 
       - name: Test Docker image
         run: |
-          docker run --rm -d --name target -p 2222:22 ${{ env.IMAGE }}
+          podman run --rm -d --name target -p 2222:22 ${{ env.IMAGE }}
           sshpass -p demo ssh \
             -o "StrictHostKeyChecking no" \
             -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
             -o "Ciphers $(ssh -Q ciphers | tr '\n' ',' | head -c -1)" \
             -o "HostKeyAlgorithms $(ssh -Q key | tr '\n' ',' | head -c -1)" \
             demo@localhost -p 2222 echo "Hello from \$(whoami)@\$(cat /etc/hostname)"
-          docker stop target
+          podman stop target
 
       - name: Publish Docker image
-        uses: docker/build-push-action@v6
+        uses: redhat-actions/push-to-registry@5ed88d269cf581ea9ef6dd6806d01562096bee9c # v2.8
         if: ${{ github.event_name == 'push' }}
         with:
-          context: ${{ matrix.CONTEXT }}
-          push: true
           tags: ${{ env.IMAGE }}
-          build-args: ${{ env.BUILD_ARGS }}

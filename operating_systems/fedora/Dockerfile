@@ -1,8 +1,8 @@
-ARG BASEIMAGE=fedora
+ARG BASEIMAGE=docker.io/library/fedora
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 RUN if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf install -y openssh-server \

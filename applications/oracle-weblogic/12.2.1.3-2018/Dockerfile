@@ -1,8 +1,8 @@
-ARG BASEIMAGE=vulhub/weblogic
+ARG BASEIMAGE=docker.io/vulhub/weblogic
 ARG TAG=12.2.1.3-2018
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 
 USER root
 

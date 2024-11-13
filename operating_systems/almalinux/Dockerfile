@@ -1,8 +1,8 @@
-ARG BASEIMAGE=almalinux
+ARG BASEIMAGE=docker.io/library/almalinux
 ARG TAG
 
 FROM ${BASEIMAGE}:${TAG}
-ARG UPDATED=true
+ARG UPDATED=false
 ARG TAG
 
 # Lock releasever to the tag to pin the minor release

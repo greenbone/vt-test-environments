@@ -1,5 +1,5 @@
 # Don't use anything RHEL 9-based. It'll break the RPM GPG key.
-FROM rockylinux:8.6 as builder
+FROM docker.io/library/rockylinux:8.6 as builder
 
 ARG TAG
 WORKDIR /tmp
