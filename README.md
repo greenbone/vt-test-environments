@@ -91,6 +91,7 @@ When done, the container can be stopped with `docker stop target`.
   - `23.03`
   - `23.09`
   - `24.03-lts`
+  - `24.09`
 - [Oracle Linux](https://ghcr.io/greenbone/vt-test-environments/oraclelinux) (`oraclelinux`)
   - `5`
   - `6`

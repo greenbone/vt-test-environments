@@ -122,6 +122,8 @@ jobs:
             TAG: "23.09"
           - CONTEXT: operating_systems/openeuler
             TAG: "24.03-lts"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "24.09"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
           - CONTEXT: operating_systems/oraclelinux
