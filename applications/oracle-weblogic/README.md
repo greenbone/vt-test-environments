@@ -22,10 +22,10 @@
 docker build applications/oracle-weblogic/12.2.1.3-2018 -t oracle-weblogic:12.2.1.3-2018
 ```
 
-If not specified otherwise, the image will be built with its packages explicitly updated. To build the image without updating it use:
+If not specified otherwise, the image will be built with its packages explicitly not updated. To build the image with updated packages use:
 
 ```
-docker build applications/oracle-weblogic/12.2.1.3-2018 --build-arg=UPDATED=false -t oracle-weblogic:12.2.1.3-2018
+docker build applications/oracle-weblogic/12.2.1.3-2018 --build-arg=UPDATED=true -t oracle-weblogic:12.2.1.3-2018
 ```
 
 ### Usage
@@ -47,10 +47,10 @@ docker run --rm --ulimit nofile=8096:8096 -it -p 2222:22 -p 7001:7001 oracle-web
 docker build applications/oracle-weblogic/10.3.6.0-2017 -t oracle-weblogic:10.3.6.0-2017
 ```
 
-If not specified otherwise, the image will be built with its packages explicitly updated. To build the image without updating it use:
+If not specified otherwise, the image will be built with its packages explicitly not updated. To build the image with updated packages use:
 
 ```
-docker build applications/oracle-weblogic/10.3.6.0-2017 --build-arg=UPDATED=false -t oracle-weblogic:10.3.6.0-2017
+docker build applications/oracle-weblogic/10.3.6.0-2017 --build-arg=UPDATED=true -t oracle-weblogic:10.3.6.0-2017
 ```
 
 ### Usage
