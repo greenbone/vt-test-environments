@@ -107,6 +107,16 @@ jobs:
           - CONTEXT: operating_systems/mageia
             TAG: "9"
           - CONTEXT: operating_systems/openeuler
+            TAG: "20.03-lts"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "20.03-lts-sp1"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "20.03-lts-sp2"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "20.03-lts-sp3"
+          - CONTEXT: operating_systems/openeuler
+            TAG: "20.03-lts-sp4"
+          - CONTEXT: operating_systems/openeuler
             TAG: "22.03-lts"
           - CONTEXT: operating_systems/openeuler
             TAG: "22.03-lts-sp1"
