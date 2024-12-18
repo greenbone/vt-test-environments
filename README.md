@@ -97,6 +97,12 @@ When done, the container can be stopped with `docker stop target`.
   - `23.09`
   - `24.03-lts`
   - `24.09`
+- [openSUSE](https://ghcr.io/greenbone/vt-test-environments/opensuse) (`opensuse`)
+  - `leap:15.6`
+  - `leap:15.5`
+  - `leap:15.4`
+  - `leap:15.3`
+  - `tumbleweed:latest`
 - [Oracle Linux](https://ghcr.io/greenbone/vt-test-environments/oraclelinux) (`oraclelinux`)
   - `5`
   - `6`
