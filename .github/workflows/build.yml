@@ -134,6 +134,24 @@ jobs:
             TAG: "24.03-lts"
           - CONTEXT: operating_systems/openeuler
             TAG: "24.09"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/leap
+            TAG: "15.6"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/leap
+            TAG: "15.5"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/leap
+            TAG: "15.4"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/leap
+            TAG: "15.3"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/leap
+            TAG: "15.3"
+          - CONTEXT: operating_systems/opensuse
+            BASEIMAGE: opensuse/tumbleweed
+            TAG: "latest"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
           - CONTEXT: operating_systems/oraclelinux
