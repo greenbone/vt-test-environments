@@ -281,7 +281,7 @@ jobs:
 
       - name: Prepare environment variables
         run: |
-          echo "IMAGE=ghcr.io/${{ github.repository }}/$(echo ${{ matrix.CONTEXT }} | cut -d / -f 2):${{ matrix.TAG }}" >> $GITHUB_ENV
+          echo "IMAGE=ghcr.io/${{ github.repository }}/$(echo ${{ matrix.CONTEXT }} | cut -d / -f 2):${{ matrix.EXPORT_TAG || matrix.TAG }}" >> $GITHUB_ENV
           echo "BUILD_ARGS<<EOF" >> $GITHUB_ENV
           echo "TAG=${{ matrix.TAG }}" >> $GITHUB_ENV
           if [[ -n "${{ matrix.BASEIMAGE }}" ]]; then
