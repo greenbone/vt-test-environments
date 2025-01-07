@@ -146,7 +146,7 @@ jobs:
             TAG: "15.2"
           - CONTEXT: operating_systems/opensuse
             BASEIMAGE: opensuse/tumbleweed
-            TAG: "latest"
+            TAG: "tumbleweed"
           - CONTEXT: operating_systems/oraclelinux
             TAG: "5"
           - CONTEXT: operating_systems/oraclelinux
