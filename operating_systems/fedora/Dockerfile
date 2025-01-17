@@ -9,6 +9,7 @@ RUN if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf clean all \
     && useradd demo \
     && echo "demo:demo" | chpasswd \
+    && echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config \
     && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config \
     && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N "" \
     && ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N "" \
