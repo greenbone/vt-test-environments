@@ -6,7 +6,7 @@ ARG UPDATED=false
 ARG TAG
 
 RUN if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
-    && dnf install -y openssh-server passwd shadow-utils\
+    && if [ "$TAG" != "20.03-lts" ]; dnf install -y openssh-server passwd shadow-utils; fi \
     && dnf clean all \
     && useradd demo \
     && echo "demo" | passwd --stdin demo \
