@@ -5,9 +5,6 @@ FROM ${BASEIMAGE}:${TAG}
 ARG UPDATED=false
 ARG TAG
 
-RUN if [ "$TAG" = "20.03-lts" ]; then dnf install -y \
-    https://repo.openeuler.org/openEuler-20.03-LTS/update/x86_64/Packages/openEuler-gpg-keys-1.0-2.9.oe1.x86_64.rpm \
-    https://repo.openeuler.org/openEuler-20.03-LTS/update/x86_64/Packages/openEuler-repos-1.0-2.9.oe1.x86_64.rpm; fi
 RUN if [ "$UPDATED" = true ]; then dnf upgrade -y; fi \
     && dnf install -y openssh-server passwd shadow-utils\
     && dnf clean all \
