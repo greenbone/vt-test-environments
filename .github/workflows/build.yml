@@ -73,6 +73,7 @@ jobs:
             BASEIMAGE: debian/eol
             TAG: jessie
           - CONTEXT: operating_systems/debian
+            BASEIMAGE: debian/eol
             TAG: stretch
           - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
