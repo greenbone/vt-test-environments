@@ -69,11 +69,11 @@ jobs:
           - CONTEXT: operating_systems/debian
             BASEIMAGE: debian/eol
             TAG: wheezy
-          # - CONTEXT: operating_systems/debian
-          #   BASEIMAGE: debian/eol
-          #   TAG: jessie
-          # - CONTEXT: operating_systems/debian
-          #   TAG: stretch
+          - CONTEXT: operating_systems/debian
+            BASEIMAGE: debian/eol
+            TAG: jessie
+          - CONTEXT: operating_systems/debian
+            TAG: stretch
           - CONTEXT: operating_systems/debian
             TAG: buster
           - CONTEXT: operating_systems/debian
