@@ -75,6 +75,7 @@ jobs:
           - CONTEXT: operating_systems/debian
             TAG: stretch
           - CONTEXT: operating_systems/debian
+            BASEIMAGE: debian/eol
             TAG: buster
           - CONTEXT: operating_systems/debian
             TAG: bullseye
