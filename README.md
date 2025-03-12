@@ -31,7 +31,8 @@ When done, the container can be stopped with `docker stop target`.
 
 - Generic (needs to be built manually, see [applications/generic/README.md](applications/generic/README.md))
 - [Home Assistant](https://ghcr.io/greenbone/vt-test-environments/home-assistant) (`home-assistant`, run with `--network host`, when requiring e.g. mDNS capabilities)
-  - `2023.5.2`
+  - `0.84.6` (Seems to be based on Debian)
+  - `2023.5.2` (And newer seems to be based on Alpine)
   - `2025.3`
 - [Oracle WebLogic Server](https://ghcr.io/greenbone/vt-test-environments/oracle-weblogic) (`oracle-weblogic`)
   - `10.3.6.0-2017` (Image based on `Ubuntu 14.04.4 LTS`)

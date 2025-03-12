@@ -20,6 +20,8 @@ jobs:
       matrix:
         include:
           - CONTEXT: applications/home-assistant
+            TAG: "0.84.6"
+          - CONTEXT: applications/home-assistant
             TAG: "2023.5.2"
           - CONTEXT: applications/home-assistant
             TAG: "2025.3"
