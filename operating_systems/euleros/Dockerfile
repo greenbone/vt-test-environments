@@ -36,7 +36,9 @@ RUN echo "${TAG}" > /etc/yum/vars/releasever \
     # Generate SSH keys
     && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N "" \
     && ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N "" \
-    && ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
+    && ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N "" \
+    # Workaround to fix SSH login (see VTA-641)
+    && sed -i "s/UsePAM yes/UsePAM no/" /etc/ssh/sshd_config
 
 CMD [ "/usr/sbin/sshd", "-D" ]
 
