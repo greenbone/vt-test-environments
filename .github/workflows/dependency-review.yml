@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Dependency Review'
-        uses: greenbone/actions/dependency-review@07ad27875ac4a20842aa223ed7123d31dc5f3448 # v3.32.0
+        uses: greenbone/actions/dependency-review@7d200b0163345ff995631d51905d95bd905a0487 # v3.32.2
