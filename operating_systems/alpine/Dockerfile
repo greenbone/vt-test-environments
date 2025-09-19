@@ -1,5 +1,5 @@
 ARG BASEIMAGE=docker.io/alpine
-ARG TAG=3.22
+ARG TAG
 ARG UPDATED=false
 
 FROM ${BASEIMAGE}:${TAG}
