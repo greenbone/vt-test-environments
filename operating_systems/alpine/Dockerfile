@@ -5,7 +5,7 @@ ARG UPDATED=false
 FROM ${BASEIMAGE}:${TAG}
 
 # default shell location: /bin/ash
-RUN if [ "$UPDATED" = true ]; then apk update && apk upgrade ; fi \
+RUN if [ "$UPDATED" = true ]; then apk update && apk upgrade; fi \
     && apk add openssh-server \
     && adduser -S demo -s /bin/sh \
     && echo "demo:demo" | chpasswd \
