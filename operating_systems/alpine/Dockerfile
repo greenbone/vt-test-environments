@@ -6,7 +6,7 @@ FROM ${BASEIMAGE}:${TAG}
 
 # default shell location: /bin/ash
 RUN if [ "$UPDATED" = true ]; then apk update && apk upgrade ; fi \
-    && apk add openssh \
+    && apk add openssh-server \
     && adduser -S demo -s /bin/sh \
     && echo "demo:demo" | chpasswd \
     && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N "" \
