@@ -172,6 +172,12 @@ When done, the container can be stopped with `docker stop target`.
   - `23.04` (Lunar Lobster)
   - `23.10` (Mantic Minotaur)
   - `24.04` (Noble Numbat)
+- [Alpine Linux](https://github.com/greenbone/vt-test-environments/pkgs/container/vt-test-environments/alpine) (`alpine`)
+  - `3.19`
+  - `3.20`
+  - `3.21`
+  - `3.22`
+  - `edge` (rolling release)
 
 #### Build
 
