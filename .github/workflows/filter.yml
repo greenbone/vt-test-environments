@@ -1,0 +1,61 @@
+name: Filter and trigger builds on changes
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
+        with:
+          files: |
+            applications/**
+            operating_systems/**
+
+      - name: Generate filtered matrix
+        id: filter
+        run: |
+          # 1. Get list of changed files from previous step
+          # 2. Convert space-separated list to newlines
+          # 3. Get directory name for each file
+          # 4. Sort and remove duplicates to get unique changed directories
+          CHANGED_DIRS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | xargs dirname | sort | uniq)
+          
+          # Read the full build matrix from JSON file
+          MATRIX=$(cat matrix.json)
+          
+          # Filter the matrix using jq:
+          # 1. .[] : Unpack the array into individual objects
+          # 2. select(...) : Keep objects that match the condition
+          # 3. .CONTEXT as $ctx : Save the current object's CONTEXT to a variable
+          # 4. "$CHANGED_DIRS" : Switch context to the string of changed directories
+          # 5. contains($ctx) : Check if that string contains the saved CONTEXT
+          FILTERED=$(echo "$MATRIX" | jq -c "[.[] | select(.CONTEXT as \$ctx | \"$CHANGED_DIRS\" | contains(\$ctx))]")
+          
+          # Set the filtered matrix as an output for the next job
+          echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
+
+  build:
+    needs: filter
+    if: needs.filter.outputs.matrix != '[]'
+    uses: ./.github/workflows/build.yml
+    with:
+      matrix: ${{ needs.filter.outputs.matrix }}
+      publish: ${{ github.event_name == 'push' }}
