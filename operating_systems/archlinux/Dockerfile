@@ -15,3 +15,4 @@ RUN if [ "$UPDATED" = "true" ]; then pacman -Syu --noconfirm; fi \
 CMD ["/usr/bin/sshd", "-D"]
 
 EXPOSE 22
+# Trigger CI build
