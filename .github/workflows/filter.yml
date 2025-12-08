@@ -21,22 +21,31 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
-        with:
-          files: |
-            applications/**
-            operating_systems/**
+      - name: Get changed directories
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            FILES=$(git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }})
+          else
+            FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          fi
+          
+          # Extract directories, sort, and remove duplicates
+          # Use -r to avoid running dirname on empty input
+          DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
+          
+          # Output as multiline string to preserve newlines
+          {
+            echo 'changed_dirs<<EOF'
+            echo "$DIRS"
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
 
       - name: Generate filtered matrix
         id: filter
         run: |
-          # 1. Get list of changed files from previous step
-          # 2. Convert space-separated list to newlines
-          # 3. Get directory name for each file
-          # 4. Sort and remove duplicates to get unique changed directories
-          CHANGED_DIRS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | xargs dirname | sort | uniq)
+          # Get the list of changed directories from the previous step
+          CHANGED_DIRS="${{ steps.changes.outputs.changed_dirs }}"
           
           # Read the full build matrix from JSON file
           MATRIX=$(cat matrix.json)
