@@ -34,6 +34,10 @@ jobs:
           # Use -r to avoid running dirname on empty input
           DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
           
+          echo "::group::Changed Directories"
+          echo "$DIRS"
+          echo "::endgroup::"
+          
           # Output as multiline string to preserve newlines
           {
             echo 'changed_dirs<<EOF'
@@ -57,6 +61,10 @@ jobs:
           # 4. "$CHANGED_DIRS" : Switch context to the string of changed directories
           # 5. contains($ctx) : Check if that string contains the saved CONTEXT
           FILTERED=$(echo "$MATRIX" | jq -c "[.[] | select(.CONTEXT as \$ctx | \"$CHANGED_DIRS\" | contains(\$ctx))]")
+          
+          echo "::group::Filtered Matrix"
+          echo "$FILTERED" | jq .
+          echo "::endgroup::"
           
           # Set the filtered matrix as an output for the next job
           echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
