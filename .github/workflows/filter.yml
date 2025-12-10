@@ -8,7 +8,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   filter:
@@ -66,6 +66,16 @@ jobs:
           echo "$FILTERED" | jq .
           echo "::endgroup::"
           
+          # Generate Job Summary
+          echo "### Build Plan" >> $GITHUB_STEP_SUMMARY
+          if [ "$FILTERED" == "[]" ]; then
+            echo "No changes detected. Skipping builds." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| Context | Tag |" >> $GITHUB_STEP_SUMMARY
+            echo "| :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.TAG)` |"' >> $GITHUB_STEP_SUMMARY
+          fi
+
           # Set the filtered matrix as an output for the next job
           echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
 
