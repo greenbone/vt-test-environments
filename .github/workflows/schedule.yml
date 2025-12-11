@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: '0 0 * * 0'  # Weekly on Sunday at midnight UTC
   workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish images to registry'
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   schedule:
@@ -24,4 +30,4 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       matrix: ${{ needs.schedule.outputs.matrix }}
-      publish: false
+      publish: ${{ github.event_name == 'schedule' || inputs.publish }}
