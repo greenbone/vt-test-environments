@@ -1,0 +1,85 @@
+name: Filter and trigger builds on changes
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Get changed directories
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            FILES=$(git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }})
+          else
+            FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          fi
+          
+          # Extract directories, sort, and remove duplicates
+          # Use -r to avoid running dirname on empty input
+          DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
+          
+          echo "::group::Changed Directories"
+          echo "$DIRS"
+          echo "::endgroup::"
+          
+          # Output as multiline string to preserve newlines
+          {
+            echo 'changed_dirs<<EOF'
+            echo "$DIRS"
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
+
+      - name: Generate filtered matrix
+        id: filter
+        run: |
+          # Get the list of changed directories from the previous step
+          CHANGED_DIRS="${{ steps.changes.outputs.changed_dirs }}"
+          
+          # Read the full build matrix from JSON file
+          MATRIX=$(cat matrix.json)
+          
+          # Filter the matrix using jq:
+          # 1. .[] : Unpack the array into individual objects
+          # 2. select(...) : Keep objects that match the condition
+          # 3. inside(...) : Check if CONTEXT is present in the CHANGED_DIRS string
+          FILTERED=$(echo "$MATRIX" | jq -c "[.[] | select(.CONTEXT | inside(\"$CHANGED_DIRS\"))]")
+          
+          echo "::group::Filtered Matrix"
+          echo "$FILTERED" | jq .
+          echo "::endgroup::"
+          
+          # Generate Job Summary
+          echo "### Build Plan" >> $GITHUB_STEP_SUMMARY
+          if [ "$FILTERED" == "[]" ]; then
+            echo "No changes detected. Skipping builds." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| Context | Base Image | Tag | Export Tag | Updated |" >> $GITHUB_STEP_SUMMARY
+            echo "| :--- | :--- | :--- | :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.BASEIMAGE)` | `\(.TAG)` | `\(.EXPORT_TAG)` | `\(.UPDATED)` |"' >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # Set the filtered matrix as an output for the next job
+          echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
+
+  build:
+    needs: filter
+    if: needs.filter.outputs.matrix != '[]'
+    uses: ./.github/workflows/build.yml
+    with:
+      matrix: ${{ needs.filter.outputs.matrix }}
+      publish: ${{ github.event_name == 'push' }}
