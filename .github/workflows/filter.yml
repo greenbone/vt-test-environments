@@ -20,44 +20,51 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed directories
-        id: changes
-        run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            FILES=$(git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }})
-          else
-            FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          fi
-          
-          # Extract directories, sort, and remove duplicates
-          # Use -r to avoid running dirname on empty input
-          DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
-          
-          echo "::group::Changed Directories"
-          echo "$DIRS"
-          echo "::endgroup::"
-          
-          # Output as multiline string to preserve newlines
-          {
-            echo 'changed_dirs<<EOF'
-            echo "$DIRS"
-            echo 'EOF'
-          } >> $GITHUB_OUTPUT
-
-      - name: Generate filtered matrix
+      - name: Calculate Build Matrix
         id: filter
         run: |
-          # Get the list of changed directories from the previous step
-          CHANGED_DIRS="${{ steps.changes.outputs.changed_dirs }}"
+          # ---------------------------------------------------------
+          # 1. Determine Git Diff Range
+          # ---------------------------------------------------------
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            BASE_REF="origin/${{ github.base_ref }}"
+          else
+            BASE_REF="${{ github.event.before }}"
+          fi
+          echo "Checking changes against base ref: $BASE_REF"
+
+          # ---------------------------------------------------------
+          # 2. Identify Changed Directories
+          # ---------------------------------------------------------
+          FILES=$(git diff --name-only $BASE_REF ${{ github.sha }})
           
-          # Read the full build matrix from JSON file
-          MATRIX=$(cat matrix.json)
+          # Extract directories, sort, and remove duplicates
+          CHANGED_DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
           
-          # Filter the matrix using jq:
-          # 1. .[] : Unpack the array into individual objects
-          # 2. select(...) : Keep objects that match the condition
-          # 3. inside(...) : Check if CONTEXT is present in the CHANGED_DIRS string
-          FILTERED=$(echo "$MATRIX" | jq -c "[.[] | select(.CONTEXT | inside(\"$CHANGED_DIRS\"))]")
+          echo "::group::Changed Directories"
+          echo "$CHANGED_DIRS"
+          echo "::endgroup::"
+
+          # ---------------------------------------------------------
+          # 3. Identify Matrix Changes
+          # ---------------------------------------------------------
+          git show "$BASE_REF:matrix.json" > old_matrix.json
+          
+          # Find items that are new in matrix.json (New - Old)
+          jq -s '.[0] - .[1]' matrix.json old_matrix.json > by_matrix.json
+          
+          echo "::group::Matrix Changes (New Entries)"
+          jq . by_matrix.json
+          echo "::endgroup::"
+
+          # ---------------------------------------------------------
+          # 4. Generate Filtered Matrix
+          # ---------------------------------------------------------
+          # Filter by directories
+          jq -c --arg changed_dirs "$CHANGED_DIRS" '[.[] | select(.CONTEXT | inside($changed_dirs))]' matrix.json > by_dirs.json
+          
+          # Combine results from changed dirs and changed matrix entries and remove duplicates
+          FILTERED=$(jq -s '.[0] + .[1] | unique' by_dirs.json by_matrix.json)
           
           echo "::group::Filtered Matrix"
           echo "$FILTERED" | jq .
@@ -70,7 +77,7 @@ jobs:
           else
             echo "| Context | Base Image | Tag | Export Tag | Updated |" >> $GITHUB_STEP_SUMMARY
             echo "| :--- | :--- | :--- | :--- | :--- |" >> $GITHUB_STEP_SUMMARY
-            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.BASEIMAGE)` | `\(.TAG)` | `\(.EXPORT_TAG)` | `\(.UPDATED)` |"' >> $GITHUB_STEP_SUMMARY
+            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.BASEIMAGE // "-")` | `\(.TAG)` | `\(.EXPORT_TAG // "-")` | `\(.UPDATED // "-")` |"' >> $GITHUB_STEP_SUMMARY
           fi
 
           # Set the filtered matrix as an output for the next job
