@@ -64,7 +64,7 @@ jobs:
           jq -c --arg changed_dirs "$CHANGED_DIRS" '[.[] | select(.CONTEXT | inside($changed_dirs))]' matrix.json > by_dirs.json
           
           # Combine results from changed dirs and changed matrix entries and remove duplicates
-          FILTERED=$(jq -s '.[0] + .[1] | unique' by_dirs.json by_matrix.json)
+          FILTERED=$(jq -c -s '.[0] + .[1] | unique' by_dirs.json by_matrix.json)
           
           echo "::group::Filtered Matrix"
           echo "$FILTERED" | jq .
