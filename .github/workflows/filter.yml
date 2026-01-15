@@ -37,17 +37,13 @@ jobs:
         run: |
           BASE_REF="${{ steps.base_ref.outputs.base_ref }}"
 
-          FILES=$(git diff --name-only $BASE_REF ${{ github.sha }})
-          
           # Extract directories from changed files to later compare with the matrix.json entries.
           # Sort and remove duplicates to ensure each directory is listed only once.
-          CHANGED_DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
+          git diff --name-only $BASE_REF ${{ github.sha }} | xargs -r dirname | sort | uniq > changed_dirs.txt
           
           echo "::group::Changed Directories"
-          echo "$CHANGED_DIRS"
+          cat changed_dirs.txt
           echo "::endgroup::"
-
-          echo "$CHANGED_DIRS" > changed_dirs.txt
 
       - name: Identify Matrix Changes
         id: matrix_changes
@@ -69,11 +65,9 @@ jobs:
       - name: Generate Filtered Matrix
         id: filter
         run: |
-          CHANGED_DIRS=$(cat changed_dirs.txt)
-
           # Filter 'matrix.json' to keep ALL items whose CONTEXT matches one of the changed directories.
           # If a directory changed, every build configuration (matrix entry) associated with that directory is kept.
-          jq -c --arg changed_dirs "$CHANGED_DIRS" '[.[] | select(.CONTEXT | inside($changed_dirs))]' matrix.json > by_dirs.json
+          jq -c --rawfile changed_dirs changed_dirs.txt '[.[] | select(.CONTEXT | inside($changed_dirs))]' matrix.json > by_dirs.json
           
           # Merge the list from file changes (by_dirs.json) with added entries to matrix.json (by_matrix.json).
           # '| unique' : Removes duplicates in case an item was selected by both triggers.
