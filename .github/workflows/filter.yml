@@ -20,62 +20,85 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed directories
-        id: changes
+      - name: Determine Base Reference
+        id: base_ref
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            FILES=$(git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }})
+            BASE_REF="origin/${{ github.base_ref }}"
           else
-            FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+            BASE_REF="${{ github.event.before }}"
           fi
-          
-          # Extract directories, sort, and remove duplicates
-          # Use -r to avoid running dirname on empty input
-          DIRS=$(echo "$FILES" | xargs -r dirname | sort | uniq)
+          echo "Checking changes against base ref: $BASE_REF"
+
+          echo "base_ref=$BASE_REF" >> "$GITHUB_OUTPUT"
+
+      - name: Identify Changed Directories
+        id: files
+        run: |
+          BASE_REF="${{ steps.base_ref.outputs.base_ref }}"
+
+          # Extract directories from changed files to later compare with the matrix.json entries.
+          # Sort and remove duplicates to ensure each directory is listed only once.
+          git diff --name-only $BASE_REF ${{ github.sha }} | xargs -r dirname | sort | uniq > changed_dirs.txt
           
           echo "::group::Changed Directories"
-          echo "$DIRS"
+          cat changed_dirs.txt
           echo "::endgroup::"
-          
-          # Output as multiline string to preserve newlines
-          {
-            echo 'changed_dirs<<EOF'
-            echo "$DIRS"
-            echo 'EOF'
-          } >> $GITHUB_OUTPUT
 
-      - name: Generate filtered matrix
+      - name: Identify Matrix Changes
+        id: matrix_changes
+        run: |
+          BASE_REF="${{ steps.base_ref.outputs.base_ref }}"
+
+          git show "$BASE_REF:matrix.json" > old_matrix.json
+          
+          # Find items that are new in matrix.json (New - Old)
+          # Deleted items are ignored by the subtraction.
+          # If an item is present in 'old' but not in 'new', it is excluded from the output.
+          jq -s '.[0] - .[1]' matrix.json old_matrix.json > by_matrix.json
+          
+          echo "::group::Matrix Changes (New Entries)"
+          jq . by_matrix.json
+          echo "::endgroup::"
+
+
+      - name: Generate Filtered Matrix
         id: filter
         run: |
-          # Get the list of changed directories from the previous step
-          CHANGED_DIRS="${{ steps.changes.outputs.changed_dirs }}"
+          # Filter 'matrix.json' to keep ALL items whose CONTEXT matches one of the changed directories.
+          # If a directory changed, every build configuration (matrix entry) associated with that directory is kept.
+          jq -c --rawfile changed_dirs changed_dirs.txt '[.[] | select(.CONTEXT | inside($changed_dirs))]' matrix.json > by_dirs.json
           
-          # Read the full build matrix from JSON file
-          MATRIX=$(cat matrix.json)
-          
-          # Filter the matrix using jq:
-          # 1. .[] : Unpack the array into individual objects
-          # 2. select(...) : Keep objects that match the condition
-          # 3. inside(...) : Check if CONTEXT is present in the CHANGED_DIRS string
-          FILTERED=$(echo "$MATRIX" | jq -c "[.[] | select(.CONTEXT | inside(\"$CHANGED_DIRS\"))]")
+          # Merge the list from file changes (by_dirs.json) with added entries to matrix.json (by_matrix.json).
+          # '| unique' : Removes duplicates in case an item was selected by both triggers.
+          FILTERED=$(jq -c -s '.[0] + .[1] | unique' by_dirs.json by_matrix.json)
           
           echo "::group::Filtered Matrix"
           echo "$FILTERED" | jq .
           echo "::endgroup::"
           
-          # Generate Job Summary
+          echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
+
+      - name: Generate Job Summary
+        env:
+          FILTERED: ${{ steps.filter.outputs.matrix }}
+        run: |
           echo "### Build Plan" >> $GITHUB_STEP_SUMMARY
           if [ "$FILTERED" == "[]" ]; then
             echo "No changes detected. Skipping builds." >> $GITHUB_STEP_SUMMARY
           else
             echo "| Context | Base Image | Tag | Export Tag | Updated |" >> $GITHUB_STEP_SUMMARY
             echo "| :--- | :--- | :--- | :--- | :--- |" >> $GITHUB_STEP_SUMMARY
-            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.BASEIMAGE)` | `\(.TAG)` | `\(.EXPORT_TAG)` | `\(.UPDATED)` |"' >> $GITHUB_STEP_SUMMARY
+            echo "$FILTERED" | jq -r '.[] | "| `\(.CONTEXT)` | `\(.BASEIMAGE // "-")` | `\(.TAG)` | `\(.EXPORT_TAG // "-")` | `\(.UPDATED // "-")` |"' >> $GITHUB_STEP_SUMMARY
           fi
 
-          # Set the filtered matrix as an output for the next job
-          echo "matrix=$FILTERED" >> $GITHUB_OUTPUT
-
+  # What is run explanation:
+  # 1. File Changes (Directory based): 
+  #    If a file changes in a directory (e.g. operating_systems/almalinux), 
+  #    all matrix entries (releases) pointing to that directory (CONTEXT) are selected. 
+  #    This ensures that a code change triggers a rebuild for all versions of that product.
+  # 2. Matrix Additions (Config based):
+  #    If a new entry is added to matrix.json, only that specific new entry is selected.
   build:
     needs: filter
     if: needs.filter.outputs.matrix != '[]'
