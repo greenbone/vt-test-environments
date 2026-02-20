@@ -132,6 +132,8 @@ When done, the container can be stopped with `docker stop target`.
   - `8.7`
   - `9.0.0`
   - `9.1.0`
+  - `10.0`
+  - `10.1`
 - [Rocky Linux](https://ghcr.io/greenbone/vt-test-environments/rockylinux) (`rockylinux`)
   - `8.5`
   - `8.6`

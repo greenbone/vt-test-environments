@@ -84,6 +84,8 @@
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi8", "TAG": "8.7" },
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi9", "TAG": "9.0.0" },
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi9", "TAG": "9.1.0" },
+  { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi10", "TAG": "10.0" },
+  { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi10", "TAG": "10.1" },
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "8.5" },
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "8.6" },
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "8.7" },
