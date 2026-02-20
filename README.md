@@ -116,6 +116,7 @@ When done, the container can be stopped with `docker stop target`.
   - `7`
   - `8`
   - `9`
+  - `10`
 - [Red Hat Enterprise Linux](https://ghcr.io/greenbone/vt-test-environments/rhel) (`rhel`)
   - `7.6`
   - `7.7`

@@ -69,6 +69,7 @@
   { "CONTEXT": "operating_systems/oraclelinux", "TAG": "7" },
   { "CONTEXT": "operating_systems/oraclelinux", "TAG": "8" },
   { "CONTEXT": "operating_systems/oraclelinux", "TAG": "9" },
+  { "CONTEXT": "operating_systems/oraclelinux", "TAG": "10" },
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi7", "TAG": "7.6" },
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi7", "TAG": "7.7" },
   { "CONTEXT": "operating_systems/rhel", "BASEIMAGE": "registry.access.redhat.com/ubi7", "TAG": "7.8" },
