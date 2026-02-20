@@ -51,6 +51,8 @@ When done, the container can be stopped with `docker stop target`.
   - `9.2`
   - `9.3`
   - `9.4`
+  - `10.0`
+  - `10.1`
 - [Amazon Linux](https://ghcr.io/greenbone/vt-test-environments/amazonlinux) (`amazonlinux`)
   - `1`
   - `2`

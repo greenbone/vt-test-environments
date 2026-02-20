@@ -13,6 +13,8 @@
   { "CONTEXT": "operating_systems/almalinux", "TAG": "9.2" },
   { "CONTEXT": "operating_systems/almalinux", "TAG": "9.3" },
   { "CONTEXT": "operating_systems/almalinux", "TAG": "9.4" },
+  { "CONTEXT": "operating_systems/almalinux", "TAG": "10.0" },
+  { "CONTEXT": "operating_systems/almalinux", "TAG": "10.1" },
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "1" },
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2" },
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2022" },
