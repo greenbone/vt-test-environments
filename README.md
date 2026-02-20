@@ -51,6 +51,8 @@ When done, the container can be stopped with `docker stop target`.
   - `9.2`
   - `9.3`
   - `9.4`
+  - `10.0`
+  - `10.1`
 - [Amazon Linux](https://ghcr.io/greenbone/vt-test-environments/amazonlinux) (`amazonlinux`)
   - `1`
   - `2`
@@ -114,6 +116,7 @@ When done, the container can be stopped with `docker stop target`.
   - `7`
   - `8`
   - `9`
+  - `10`
 - [Red Hat Enterprise Linux](https://ghcr.io/greenbone/vt-test-environments/rhel) (`rhel`)
   - `7.6`
   - `7.7`
@@ -129,6 +132,8 @@ When done, the container can be stopped with `docker stop target`.
   - `8.7`
   - `9.0.0`
   - `9.1.0`
+  - `10.0`
+  - `10.1`
 - [Rocky Linux](https://ghcr.io/greenbone/vt-test-environments/rockylinux) (`rockylinux`)
   - `8.5`
   - `8.6`
