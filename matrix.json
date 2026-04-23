@@ -41,6 +41,7 @@
   { "CONTEXT": "operating_systems/euleros", "TAG": "2.10" },
   { "CONTEXT": "operating_systems/fedora", "TAG": "39" },
   { "CONTEXT": "operating_systems/fedora", "TAG": "40" },
+  { "CONTEXT": "operating_systems/fedora", "TAG": "44" },
   { "CONTEXT": "operating_systems/mageia", "TAG": "7" },
   { "CONTEXT": "operating_systems/mageia", "TAG": "8" },
   { "CONTEXT": "operating_systems/mageia", "TAG": "9" },

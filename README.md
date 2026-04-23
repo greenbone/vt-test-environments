@@ -84,6 +84,7 @@ When done, the container can be stopped with `docker stop target`.
 - [Fedora](https://ghcr.io/greenbone/vt-test-environments/fedora) (`fedora`)
   - `39`
   - `40`
+  - `44`
 - [Mageia](https://ghcr.io/greenbone/vt-test-environments/mageia) (`mageia`)
   - `7`
   - `8`
