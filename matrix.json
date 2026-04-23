@@ -136,6 +136,7 @@
   { "CONTEXT": "operating_systems/ubuntu", "TAG": "23.10" },
   { "CONTEXT": "operating_systems/ubuntu", "TAG": "24.04" },
   { "CONTEXT": "operating_systems/ubuntu", "TAG": "24.10" },
+  { "CONTEXT": "operating_systems/ubuntu", "TAG": "26.04" },
   { "CONTEXT": "operating_systems/alpine", "TAG": "3.19" },
   { "CONTEXT": "operating_systems/alpine", "TAG": "3.20" },
   { "CONTEXT": "operating_systems/alpine", "TAG": "3.21" },
