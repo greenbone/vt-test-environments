@@ -11,4 +11,4 @@ jobs:
       contents: write
     steps:
       - name: 'SBOM upload'
-        uses: greenbone/actions/sbom-upload@3736ab64a79804bd12890ecfdcf9816d68473b17 # v3.35.5
+        uses: greenbone/actions/sbom-upload@aa49604a7c2a28d7810d23addac6513af7d8e11f # v3.36.12
