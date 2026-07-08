@@ -58,6 +58,7 @@
   { "CONTEXT": "operating_systems/openeuler", "TAG": "23.03" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "23.09" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "24.03-lts" },
+  { "CONTEXT": "operating_systems/openeuler", "TAG": "24.03-lts-sp4" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "24.09" },
   { "CONTEXT": "operating_systems/opensuse", "TAG": "15.2" },
   { "CONTEXT": "operating_systems/opensuse", "TAG": "15.3" },
