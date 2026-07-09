@@ -103,6 +103,7 @@ When done, the container can be stopped with `docker stop target`.
   - `23.03`
   - `23.09`
   - `24.03-lts`
+  - `24.03-lts-sp4`
   - `24.09`
 - [openSUSE](https://ghcr.io/greenbone/vt-test-environments/opensuse) (`opensuse`)
   - `15.2`
