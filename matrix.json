@@ -14,5 +14,5 @@
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "9.6" },
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "9.7" },
   { "CONTEXT": "operating_systems/rockylinux", "TAG": "10.0" },
-  { "CONTEXT": "operating_systems/rockylinux", "TAG": "10.1" },
+  { "CONTEXT": "operating_systems/rockylinux", "TAG": "10.1" }
 ]
