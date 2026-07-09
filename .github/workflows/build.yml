@@ -54,7 +54,7 @@ jobs:
       - name: Test Docker image
         run: |
           ID=$(podman run --cap-add CAP_AUDIT_WRITE --rm -d --name target -p 2222:22 ${{ env.IMAGE }})
-          podman exec capsh --print
+          podman exec $ID capsh --print
           sshpass -p demo ssh \
             -o "StrictHostKeyChecking no" \
             -o "KexAlgorithms $(ssh -Q kex | tr '\n' ',' | head -c -1)" \
