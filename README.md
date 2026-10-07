@@ -58,6 +58,7 @@ When done, the container can be stopped with `docker stop target`.
   - `2`
   - `2022`
   - `2023`
+  - `2027`
 - [Arch Linux](https://ghcr.io/greenbone/vt-test-environments/archlinux) (`archlinux`)
   - `latest`
 - [Debian](https://ghcr.io/greenbone/vt-test-environments/debian) (`debian`)
