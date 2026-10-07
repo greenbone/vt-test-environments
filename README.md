@@ -111,6 +111,7 @@ When done, the container can be stopped with `docker stop target`.
   - `15.4`
   - `15.5`
   - `15.6`
+  - `16.0`
   - `tumbleweed`
 - [Oracle Linux](https://ghcr.io/greenbone/vt-test-environments/oraclelinux) (`oraclelinux`)
   - `5`

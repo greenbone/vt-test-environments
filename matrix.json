@@ -65,6 +65,7 @@
   { "CONTEXT": "operating_systems/opensuse", "TAG": "15.4" },
   { "CONTEXT": "operating_systems/opensuse", "TAG": "15.5" },
   { "CONTEXT": "operating_systems/opensuse", "TAG": "15.6" },
+  { "CONTEXT": "operating_systems/opensuse", "TAG": "16.0" },
   { "CONTEXT": "operating_systems/opensuse", "BASEIMAGE": "docker.io/opensuse/tumbleweed", "TAG": "latest", "EXPORT_TAG": "tumbleweed" },
   { "CONTEXT": "operating_systems/oraclelinux", "TAG": "5" },
   { "CONTEXT": "operating_systems/oraclelinux", "TAG": "6" },
