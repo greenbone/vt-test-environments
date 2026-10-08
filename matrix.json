@@ -19,6 +19,7 @@
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2" },
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2022" },
   { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2023" },
+  { "CONTEXT": "operating_systems/amazonlinux", "TAG": "2027" },
   { "CONTEXT": "operating_systems/archlinux", "TAG": "latest" },
   { "CONTEXT": "operating_systems/debian", "BASEIMAGE": "debian/eol", "TAG": "woody" },
   { "CONTEXT": "operating_systems/debian", "BASEIMAGE": "debian/eol", "TAG": "sarge" },
