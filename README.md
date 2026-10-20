@@ -86,6 +86,7 @@ When done, the container can be stopped with `docker stop target`.
   - `39`
   - `40`
   - `44`
+  - `45`
 - [Mageia](https://ghcr.io/greenbone/vt-test-environments/mageia) (`mageia`)
   - `7`
   - `8`
