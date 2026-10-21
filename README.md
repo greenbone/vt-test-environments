@@ -192,6 +192,7 @@ When done, the container can be stopped with `docker stop target`.
   - `23.10` (Mantic Minotaur)
   - `24.04` (Noble Numbat)
   - `26.04` (Resolute Raccoon)
+  - `26.10`
 - [Alpine Linux](https://github.com/greenbone/vt-test-environments/pkgs/container/vt-test-environments/alpine) (`alpine`)
   - `3.19`
   - `3.20`
