@@ -21,7 +21,7 @@ VERSION="8"
 [...]
 ```
 
-However, please use `docker exec -it target bash` preferrebly to interact with the container, because SSH might not be possible e.g. for very old images with no matching key exchange algorithm or requires removing the fingerprint of previously used containers from your known hosts file.
+However, please use `docker exec -it target bash` (Or `docker exec -it target ash` for `Alpine Linux`) preferably to interact with the container, because SSH might not be possible e.g. for very old images with no matching key exchange algorithm or requires removing the fingerprint of previously used containers from your known hosts file.
 
 When done, the container can be stopped with `docker stop target`.
 
