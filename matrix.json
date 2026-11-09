@@ -47,6 +47,7 @@
   { "CONTEXT": "operating_systems/mageia", "TAG": "7" },
   { "CONTEXT": "operating_systems/mageia", "TAG": "8" },
   { "CONTEXT": "operating_systems/mageia", "TAG": "9" },
+  { "CONTEXT": "operating_systems/mageia", "TAG": "10" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "20.03-lts" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "20.03-lts-sp1" },
   { "CONTEXT": "operating_systems/openeuler", "TAG": "20.03-lts-sp2" },

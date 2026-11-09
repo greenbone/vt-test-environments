@@ -91,6 +91,7 @@ When done, the container can be stopped with `docker stop target`.
   - `7`
   - `8`
   - `9`
+  - `10`
 - [openEuler](https://ghcr.io/greenbone/vt-test-environments/openeuler) (`openeuler`)
   - `20.03-lts`
   - `20.03-lts-sp1`
